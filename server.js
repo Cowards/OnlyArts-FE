@@ -27,7 +27,7 @@ app.set("view engine", "pug");
 //khúc này nhét router zô đây hơi quằn nma dùng tạm dược
 // nav trên pug nên trỏ đến mấy cái router này thì sẽ dùng SSR
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("home");
 });
 
 //khúc này .env đ có port thì mặc định là 4000
