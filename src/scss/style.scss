@@ -1,0 +1,28 @@
+//variables với mixins ở trên này
+
+
+//import các file scss vào đây
+// ví dụ: @import 'component/component1.scss';
+
+ 
+
+//khúc này là reset css thằng nào cũng có
+.container{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding:0rem 0.5rem;
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: Helvetica, sans-serif;
+}
+body{
+    font-size: 1.6rem;
+}

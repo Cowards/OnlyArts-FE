@@ -38,25 +38,7 @@ This is a school project in SWP391 subject. In this project we built a web appli
 ## Tech Stack
 
 <p align="center">
-  <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
-    <img width="50" height="50" src="https://vitejs.dev/logo.svg" alt="Vite logo">
-  </a>
-  &#8194;	
-  <a href="https://nodejs.org">
-    <img src="https://nodejs.org/static/images/logo.svg" height="50">
-  </a> 
-  &#8194;	
-  <a href="https://pugjs.org">
-    <img src="https://cdn.rawgit.com/pugjs/pug-logo/eec436cee8fd9d1726d7839cbe99d1f694692c0c/SVG/pug-final-logo-_-colour-128.svg" width="80" height="50" >
-  </a>
-  &#8194;	
-  <a href="https://sass-lang.com/documentation/">
-    <img src="https://sass-lang.com/assets/img/logos/logo.svg" width="60">
-  </a>
-  &#8194;	
-  <a href="https://vanilla.js.org/">
-    <img src="https://www.javascripttutorial.net/wp-content/uploads/2021/04/JavaScript-Tutorial.svg" width="60">
-  </a>
+  
 </p>
 
 ## Color Reference
@@ -82,3 +64,4 @@ This is a school project in SWP391 subject. In this project we built a web appli
 
 To run this project, you will need to add the following environment variables to your .env file <br>
 `API_KEY`
+`PORT`
