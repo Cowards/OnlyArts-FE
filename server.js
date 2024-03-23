@@ -33,4 +33,5 @@ app.get("/", (req, res) => {
 //khúc này .env đ có port thì mặc định là 4000
 app.listen(process.env.PORT || 4000, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
+  console.log(`${process.env.HOST}:${process.env.PORT}`);
 });
