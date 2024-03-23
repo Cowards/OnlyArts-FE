@@ -1,0 +1,160 @@
+body {
+    #sidebar {
+        width: 60px;
+        height: 100%;
+        background: $grey;
+        font-family: $poppins;
+        transition: 0.3s ease;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+
+        &:-webkit-scrollbar {
+            display: none;
+        }
+
+        .brand {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 1rem;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+
+        .side-menu {
+            display: block;
+            width: 100%;
+            height: auto;
+            list-style-type: none;
+
+            li {
+                font-size: 2.5rem;
+                padding: .5rem;
+                border-top-left-radius: 3rem;
+                border-bottom-left-radius: 3rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                position: relative;
+
+                a {
+                    width: 100%;
+                    color: $black;
+                    @include flex(center, center, row);
+                    border-radius: 3rem;
+                    padding: .5rem;
+
+                    i {
+                        width: 100%;
+                        font-size: 2.5rem;
+                        text-align: center;
+                    }
+
+                    span {
+                        width: 90%;
+                        font-size: 2rem;
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    background-color: $dark-grey;
+
+                    a {
+                        background-color: $grey;
+                        color: $blue;
+                    }
+
+                    &::after {
+                        display: block;
+                        transition: none;
+                    }
+
+                    &::before {
+                        display: block;
+                        transition: none;
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    bottom: -2rem;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                    box-shadow: -1rem 1rem 0 $dark-grey;
+                    transition: none;
+                    transform: rotate(180deg);
+                }
+
+                &::before {
+                    content: '';
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    top: -2rem;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                    box-shadow: 1rem -1rem 0 $dark-grey;
+                    transition: none;
+                    transform: rotate(90deg);
+                }
+
+                &.active {
+                    background-color: $dark-grey;
+
+                    a {
+                        background-color: $grey;
+                        color: $blue;
+                    }
+
+                    &::after {
+                        display: block !important;
+                    }
+
+                    &::before {
+                        display: block !important;
+                    }
+                }
+            }
+
+            #logout {
+                a {
+                    color: $red;
+                }
+            }
+        }
+
+        &.show {
+            width: 220px;
+
+            i {
+                width: 10% !important;
+                margin-right: 1rem;
+            }
+
+            span {
+                display: block !important;
+            }
+        }
+
+
+    }
+
+    #content {
+        width: calc(100% - 60px);
+        height: 100%;
+        background: $white;
+    }
+}
