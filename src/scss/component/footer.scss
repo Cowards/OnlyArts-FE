@@ -1,0 +1,54 @@
+#footer {
+    @include flex(space-between, center, row);
+    width: 100%;
+    height: fit-content;
+    padding: .5rem 2rem;
+    background-color: $grey;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        box-shadow: 2rem -2rem 0 $grey;
+        position: absolute;
+        top: -4rem;
+        left: 0;
+        transform: rotate(180deg);
+    }
+
+    .footer-left {
+        .footer-list {
+            @include flex(flex-start, center, row);
+
+            .footer-item {
+                display: block;
+                height: fit-content;
+                margin-right: 1rem;
+
+                .footer-link {
+                    display: block;
+                    font-size: 2rem;
+                    color: $black;
+
+                    img {
+                        display: block;
+                        height: 2rem;
+                        width: auto;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-right {
+        text-align: right;
+
+        a {
+            color: $black;
+        }
+    }
+}

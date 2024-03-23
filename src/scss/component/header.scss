@@ -73,3 +73,13 @@
         transform: rotate(270deg);
     }
 }
+
+#content {
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &:-webkit-scrollbar {
+        display: none;
+    }
+}
