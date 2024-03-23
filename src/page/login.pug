@@ -1,13 +1,40 @@
 doctype html
 head
-  meta(charset='UTF-8')
-  meta(content='IE=edge' http-equiv='X-UA-Compatible')
-  meta(content='width=device-width,initial-scale=1' name='viewport')
-  meta(content='Page description' name='description')
-  meta(name='google' content='notranslate')
-  meta(name='msapplication-tap-highlight' content='no')
-  link(rel="icon",type="image/x-icon", href="../img/logo-no-text.png")
-  link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
-  title OnlyArts
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title OnlyArts
 body
-    
+    #login
+        .background 
+            img(src="../img/artwork-bg.jpg")
+        .container
+            .login-header
+                h1 Welcome to OnlyArts
+                p Please login to continue
+            form.login-form(action='' autocomplete='off')
+                .form-item
+                    label(for='email') Email
+                    input#email(type='email' name='email' placeholder='example@email.com')
+                .form-item
+                    label(for='password') Password
+                    input#password.pass-key(type='password' name='password' placeholder='Enter your Password' required='')
+                    img#eyeicon.password-toggle(src='../img/eye-close.png')
+                #login-error-message
+                button(type='submit') Login
+            .login-footer
+                .link
+                    .forgot
+                        a(href='#') Forgot password?
+                    .sign-up
+                        p Don&apos;t have an account?
+                        a(href='/signup') Sign up
+                a.google(href='')
+                    img(width='30' src='https://img.icons8.com/fluency/512/google-logo.png' alt='google')
+                    | Google
+    script(src='../bundle.js')
