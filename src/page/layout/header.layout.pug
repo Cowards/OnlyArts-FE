@@ -1,9 +1,8 @@
 nav#header
-  i.bx.bx-menu(data-id='0')
-  form#search-form(action="")
-    .form-input
+  i.bx.bx-menu#menu-btn(data-id='0')
+  form#main-search-form(action="")
       input(type='search' placeholder='Search...')
       button.search-btn(type='submit')
         i.bx.bx-search
-  a.profile(href='#')
-    img#account-img(src='./assets/images/user.png')
+  a#profile-link(href='/profile')
+    img#profile-img(src='../img/user.png')
