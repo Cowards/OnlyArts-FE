@@ -43,8 +43,9 @@ $light-blue: #cfe8ff;
 // ví dụ: @import 'component/component1.scss';
 @import 'component/sidebar.scss';
 @import 'component/header.scss';
-@import 'component/login.scss';
+@import 'component/assign.scss';
 @import 'component/footer.scss';
+@import './home.scss';
 
 //khúc này là reset css thằng nào cũng có
 
@@ -53,6 +54,10 @@ $light-blue: #cfe8ff;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 html {
