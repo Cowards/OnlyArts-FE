@@ -32,13 +32,14 @@ app.get("/", (req, res) => {
 app.get("/home", (req, res) => {
   res.render("home");
 });
-
 app.get("/login", (req, res) => {
   res.render("login");
 });
-
 app.get("/signup", (req, res) => {
   res.render("signup");
+});
+app.get("/discover", (req, res) => {
+  res.render("discover");
 });
 
 //khúc này .env đ có port thì mặc định là 4000

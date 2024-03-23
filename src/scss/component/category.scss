@@ -1,0 +1,64 @@
+section#category {
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: $dark-grey;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0.2;
+    }
+
+    #category-form {
+        @include flex(center, space-between, column);
+        width: 100%;
+
+        .form-input-block {
+            @include flex(flex-start, center, row);
+            flex-wrap: wrap;
+
+            .form-input {
+                display: block;
+                width: 10%;
+                position: relative;
+
+                input[type="checkbox"] {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+
+                    &:checked+label {
+                        border-color: $blue !important;
+                        background-color: $blue;
+                        color: $white;
+                    }
+                }
+
+                label {
+                    display: block;
+                    width: calc(100% - 1rem);
+                    margin: .5rem;
+                    height: fit-content;
+                    padding: .5rem .5rem;
+                    border: 1px solid $dark-grey;
+                    text-align: center;
+                    border-radius: 1rem;
+                    font-size: 1.5rem;
+                    font-weight: 300;
+
+                    &:hover {
+                        background-color: $dark-grey;
+                    }
+                }
+            }
+        }
+    }
+}
