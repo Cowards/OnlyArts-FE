@@ -71,16 +71,16 @@ gulp.task("imageMin", function () {
 });
 
 gulp.task("clean-img", async function () {
-  return deleteAsync("public/img/*");
+  return deleteAsync("public/img");
 });
 gulp.task("clean-html", async function () {
   return deleteAsync("public/page");
 });
 gulp.task("clean-js", async function () {
-  return deleteAsync("public/js/*");
+  return deleteAsync("public/js");
 });
 gulp.task("minifyjs", async function () {
-  return gulp.src("src/js/**/*.js").pipe(uglify()).pipe(gulp.dest("public/js"));
+  return gulp.src("src/js/*.js").pipe(uglify()).pipe(gulp.dest("public/js"));
 });
 gulp.task("clean-video", async function () {
   return deleteAsync("public/video/*");
