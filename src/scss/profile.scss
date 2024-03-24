@@ -1,0 +1,156 @@
+main#profile {
+    padding: 2rem;
+    background-color: $white;
+
+    #account-info {
+        width: 80%;
+        margin: 0 auto;
+
+        .account-img {
+            display: block;
+            width: 40rem;
+            height: 40rem;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .account-name {
+            padding: 1rem 2rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .account-bio {
+            font-size: 1.8rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .account-follow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .follow-text {
+                color: $black;
+                display: block;
+                padding: 0.5rem 1rem;
+
+                &:hover {
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .account-btn-list {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 3rem;
+            position: relative;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 1px;
+                width: 100%;
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                background-color: $black;
+                opacity: 0.5;
+            }
+
+            .account-btn {
+                display: block;
+                outline: none;
+                padding: 1rem 2rem;
+                margin: 0 1.5rem;
+                border-radius: 2rem;
+                background-color: $dark-grey;
+                color: $white;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $black;
+                }
+            }
+        }
+
+        h3 {
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .about-block {
+            margin: 0 auto;
+            display: block;
+            width: 100%;
+            position: relative;
+            padding-bottom: 3rem;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 1px;
+                width: 100%;
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                background-color: $black;
+                opacity: 0.5;
+            }
+
+            .info-block {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                padding: 0.5rem 0;
+                position: relative;
+
+                &:last-child::after {
+                    display: none;
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    height: 1px;
+                    width: 100%;
+                    background-color: $black;
+                    opacity: 0.3;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    transform: translateX(-50%);
+                }
+
+                h3 {
+                    padding: 0 1rem;
+                    text-align: left;
+                    display: block;
+                    width: 30%;
+                }
+
+                p {
+                    display: block;
+                    width: 70%;
+                }
+            }
+        }
+    }
+}

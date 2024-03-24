@@ -63,5 +63,5 @@ This is a school project in SWP391 subject. In this project we built a web appli
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file <br>
-`API_KEY`
+`API_URL`
 `PORT`
