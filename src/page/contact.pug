@@ -1,0 +1,60 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title OnlyArts
+body 
+    include ./layout/sidebar.layout.pug
+    section#content
+        include ./layout/header.layout.pug
+        main#contact
+            .container
+                .form
+                    .contact-info
+                        .info
+                        h3.title Let&apos;s get in touch
+                        p.text
+                            | If you have any problems or suggestions about our website,
+                            | please don&apos;t hesitate to contact us. Your feedback is really
+                            | important for making our website better and fixing any issues
+                            | quickly. We appreciate your input and can&apos;t wait to hear from
+                            | you.
+                        .info
+                        .information
+                            i.bx.bxs-map
+                            p
+                            | E2a-7 Lot, D1 Street, Long Thanh My Ward, Thu Duc City, Ho
+                            | Chi Minh City 700000.
+                        .information
+                            i.bx.bxs-envelope
+                            p onlyartworks@gmail.com
+                        .information
+                            i.bx.bxs-phone
+                            p 0123-456-789
+                    .contact-form
+                        form.form-block(action='index.html' autocomplete='off')
+                            h3.title Contact us
+                            .input-container
+                                label(for='') Username
+                                input.input(type='text' name='name')
+                            .input-container
+                                label(for='') Email
+                                input.input(type='email' name='email')
+                            .input-container
+                                label(for='') Phone
+                                input.input(type='tel' name='phone')
+                            .input-container.textarea
+                                label(for='') Message
+                                textarea.input(name='message')
+                            input.btn(type='submit' value='Send')
+
+        include ./layout/footer.layout.pug
+
+    script(src="../js/style-sidebar.js") 
+    script(src="../bundle.js") 

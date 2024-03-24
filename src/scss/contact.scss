@@ -1,0 +1,175 @@
+main#contact {
+    width: 100%;
+
+    .container {
+        margin: 0 auto;
+
+        .form {
+            border-top-left-radius: 2rem;
+            @include flex(center, center, row);
+            height: calc(100vh - 9.4rem);
+            overflow: hidden;
+
+            .contact-info {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 2rem;
+                width: 50%;
+                height: 100%;
+                background-color: $white;
+
+                .title {
+                    display: block;
+                    font-size: 5rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .text {
+                    display: block;
+                    font-size: 2.5rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .info {
+                    .information {
+                        margin-bottom: 0.5rem;
+                        display: flex;
+
+                        i {
+                            display: block;
+                            font-size: 3rem;
+                            margin-right: 1rem;
+                        }
+
+                        p {
+                            display: block;
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+
+            .contact-form {
+                padding: 2rem;
+                width: 50%;
+                height: 100%;
+                position: relative;
+                background-color: $black;
+                color: $white;
+
+                .form-block {
+                    width: 100%;
+                    height: 100%;
+
+                    .title {
+                        font-size: 5rem;
+                    }
+
+                    .input-container {
+                        width: 100%;
+                        margin-bottom: 3rem;
+                        position: relative;
+
+                        input {
+                            display: block;
+                            width: 100%;
+                            font-size: 1.4rem;
+                            padding-left: 1.5rem;
+                            height: 4rem;
+                            background-color: $black;
+                            border: 0.2rem solid $white;
+                            border-radius: 2rem;
+                            color: $white;
+
+                            &:focus {
+                                outline: none;
+                            }
+
+                            &:focus~label {
+                                font-size: 1.6rem;
+                                position: relative;
+                            }
+                        }
+
+                        label {
+                            font-size: 1.2rem;
+                            padding: 0 0.5rem;
+                            display: block;
+                            margin-bottom: 0.5rem;
+                            background-color: $black;
+                            position: absolute;
+                            left: 1.5rem;
+                            top: -1rem;
+                        }
+
+                        textarea {
+                            display: block;
+                            width: 100%;
+                            min-height: 30rem;
+                            max-height: 30rem;
+                            overflow-y: scroll;
+                            font-size: 1.4rem;
+                            padding-top: 0.5rem;
+                            padding-left: 1.5rem;
+                            height: 4rem;
+                            background-color: $black;
+                            border: 0.2rem solid $white;
+                            border-radius: 2rem;
+                            color: $white;
+
+                            &:focus {
+                                outline: none;
+                            }
+
+                            &::-webkit-scrollbar {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    input[type="submit"] {
+                        display: block;
+                        width: 10rem;
+                        padding: 1rem;
+                        background-color: $black;
+                        border: 0.2rem solid $white;
+                        border-radius: 2rem;
+                        color: $white;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        &:hover {
+                            background-color: $white;
+                            color: $black;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    main#contact {
+        .form {
+            flex-direction: column;
+            justify-content: flex-start !important;
+            border-radius: 3rem;
+            overflow: scroll !important;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .contact-info,
+            .contact-form {
+                width: 100% !important;
+            }
+        }
+    }
+}

@@ -44,6 +44,9 @@ app.get("/discover", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about");
 });
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
 
 //khúc này .env đ có port thì mặc định là 4000
 app.listen(process.env.PORT || 4000, () => {
