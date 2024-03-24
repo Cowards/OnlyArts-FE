@@ -14,6 +14,8 @@ body
     section#content
         include ./layout/header.layout.pug
         section#category
+            button.filter-btn Category Filter
+                i.bx.bx-filter
             form#category-form(action="")
                 .form-input-block
                     each val, index in ['All','AbstractStyle', 'Animation', 'Basic', 'Classic', 'Complex', 'Digital', 'DigitalTech', 'Expressionism', 'Fabric', 'FamousPortrait', 'Impressionism', 'Interior', 'Modern', 'Natural', 'Paper', 'Pastel', 'Realistic', 'Sketch', 'Traditional', 'Urban', 'Wall', 'Watercolor', 'Wood', 'Abstract', 'Acrylic', 'Charcoal', 'Comic', 'Landscape', 'Oil', 'Pencil', 'Portrait', 'StillLife', 'Fantasy']
@@ -143,6 +145,6 @@ body
                             i.bx.bxs-heart
                             p.reaction-count 100
         include ./layout/footer.layout.pug
-
-    script(src="../js/style.sidebar.js") 
+    script(src="../js/style-discover.js")
+    script(src="../js/style-sidebar.js") 
     script(src="../bundle.js") 
