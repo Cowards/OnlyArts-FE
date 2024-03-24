@@ -1,0 +1,48 @@
+main#about {
+    width: 100%;
+    height: fit-content;
+    padding: 2rem;
+
+    .container {
+        display: block;
+        width: 80%;
+        height: fit-content;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: $white;
+        border-radius: 2rem;
+
+        .content-block {
+            padding: 2rem 0;
+
+            h2 {
+                font-size: 3rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    display: block;
+                    width: calc(100% + 4rem);
+                    height: 1px;
+                    background-color: $black;
+                    position: absolute;
+                    bottom: -2rem;
+                    left: -2rem;
+                    opacity: 0.1;
+                }
+            }
+
+            p {
+                padding: 1rem;
+                font-size: 1.5rem;
+                text-align: justify;
+
+                b {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
