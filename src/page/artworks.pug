@@ -1,0 +1,49 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title Artwork Manager
+body 
+    include ./layout/sidebar.layout.pug
+    section#content
+        include ./layout/header.layout.pug
+        main#artwork-manage 
+            .container 
+                .artwork-table
+                    table 
+                        thead   
+                            tr
+                                th Image
+                                th Name
+                                th Description
+                                th Price
+                                th Status
+                                th Action
+                        tbody
+                            each val in [1,2,3,4,5,6,7,8,9,10]
+                                tr 
+                                    td.img
+                                        img(src="../img/artwork-demo.jpg" alt="artwork")
+                                    td 
+                                        p Artwork 1
+                                    td.description 
+                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                    td 
+                                        p $100
+                                    td 
+                                        p Free
+                                    td 
+                                        form(action="") 
+                                            input(type="text" name="id" value = "1", hidden)
+                                            button(type="submit") 
+                                                i.bx.bx-trash
+        include ./layout/footer.layout.pug
+
+    script(src="../js/style-sidebar.js") 
+    script(src="../bundle.js") 
