@@ -1,0 +1,48 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title Publich artwork
+body 
+    include ./layout/sidebar.layout.pug
+    section#content
+        include ./layout/header.layout.pug
+        main#publish
+            .container
+                form#publish-form
+                    .input-block
+                        label.form-label(for='image') Artowrk Image
+                        input#image.form-input-file(type='file' name='image' required='')
+                    .input-block
+                        label.form-label(for='name') Artwork Name
+                        input#name.form-input(type='text' name='name' required='')
+                    .input-block
+                        label.form-label(for='category') Artwork Type
+                        select#category.form-select(name='category')
+                            each val, index in ['AbstractStyle', 'Animation', 'Basic', 'Classic', 'Complex', 'Digital', 'DigitalTech', 'Expressionism', 'Fabric', 'FamousPortrait', 'Impressionism', 'Interior', 'Modern', 'Natural', 'Paper', 'Pastel', 'Realistic', 'Sketch', 'Traditional', 'Urban', 'Wall', 'Watercolor', 'Wood', 'Abstract', 'Acrylic', 'Charcoal', 'Comic', 'Landscape', 'Oil', 'Pencil', 'Portrait', 'StillLife', 'Fantasy']
+                                option(value=val) #{val}
+                    .input-block
+                        label.form-label(for='category') Premium
+                        select#category.form-select(name='premium')
+                            option(value='Free') Free
+                            option(value='Premium') Premium
+                    .input-block
+                        label.form-label(for='description') Description
+                        textarea#description.form-textarea(name='description' required='')
+                    .input-block
+                        label.form-label(for='price') Price
+                        input#price.form-input(type='number' name='price' min='0')
+                    #publish-error
+                    input(type='submit' value='Publish')
+                .artwork-img.img
+                    img#imagePreview(src='' alt='')
+        include ./layout/footer.layout.pug
+
+        script(src="../js/style-sidebar.js") 
+        script(src="../bundle.js") 

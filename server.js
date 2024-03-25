@@ -16,7 +16,8 @@ const app = express();
 const corsOptions = {
   origin: "*",
   credentials: true,
-  optionSuccessStatus: 200,
+  allowedHeaders: "Content-Type,Authorization",
+  optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
@@ -26,6 +27,7 @@ app.set("view engine", "pug");
 
 //khúc này nhét router zô đây hơi quằn nma dùng tạm dược
 // nav trên pug nên trỏ đến mấy cái router này thì sẽ dùng SSR
+
 app.get("/", (req, res) => {
   res.redirect("/home");
 });
@@ -47,9 +49,6 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
-app.get("/profile", (req, res) => {
-  res.render("profile");
-});
 app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
@@ -59,6 +58,14 @@ app.get("/account", (req, res) => {
 app.get("/artworks", (req, res) => {
   res.render("artworks");
 });
+app.get("/publish", (req, res) => {
+  res.render("publish");
+});
+
+app.get("/geturl", (req, res) => {
+  res.send({ url: process.env.API_URL });
+});
+
 //khúc này .env đ có port thì mặc định là 4000
 app.listen(process.env.PORT || 4000, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

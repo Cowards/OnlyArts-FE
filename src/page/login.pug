@@ -20,7 +20,7 @@ body
             form.login-form(action='' autocomplete='off')
                 .form-item
                     label(for='email') Email
-                    input#email(type='email' name='email' placeholder='example@email.com')
+                    input#email(type='email' name='email' placeholder='example@email.com' required='')
                 .form-item
                     label(for='password') Password
                     input#password.pass-key(type='password' name='password' placeholder='Enter your Password' required='')
@@ -36,3 +36,4 @@ body
                         a(href='/signup') Sign up
     script(src="../js/style-assign.js")
     script(src='../bundle.js')
+    script(type="module" src="../js/login.js") 
