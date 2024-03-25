@@ -53,6 +53,9 @@ app.get("/profile", (req, res) => {
 app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
+app.get("/account", (req, res) => {
+  res.render("account");
+});
 //khúc này .env đ có port thì mặc định là 4000
 app.listen(process.env.PORT || 4000, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

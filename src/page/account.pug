@@ -1,0 +1,62 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title About Us
+body 
+    include ./layout/sidebar.layout.pug
+    section#content
+        include ./layout/header.layout.pug
+        main#account-manage 
+            .container 
+                form#account-search(action="")
+                    input(type="text" placeholder="Search Account")
+                    button(type="submit")
+                        i.bx.bx-search-alt-2
+                .account-table
+                    table 
+                        thead
+                            tr
+                                th Id
+                                th Name
+                                th Email
+                                th Phone
+                                th Address
+                                th Role
+                                th Status
+                                th Action
+                        tbody
+                            each val in [1,2,3,4,5,6,7,8,9,10]
+                                tr
+                                    form(action="") 
+                                        td 
+                                            input(type="text" name="id" value="${val}" readonly)
+                                        td 
+                                            input(type="text" name="name" value="hvann")
+                                        td 
+                                            input(type="text" name="email" value="mail@example.com" readonly)
+                                        td 
+                                            input(type="text" name="phone" value="0123456789")
+                                        td 
+                                            input(type="text" name="address" value="Phnom Penh")
+                                        td 
+                                            input(type="text" name="role" value="Admin" readonly)
+                                        td Active
+                                        td 
+                                            button(name="action" value="edit").edit
+                                                i.bx.bx-edit
+                                            button(name="action" value="remove").delete
+                                                i.bx.bx-trash
+                                            button(name="action" value="block").ban 
+                                                i.bx.bx-block
+
+        include ./layout/footer.layout.pug
+
+    script(src="../js/style-sidebar.js") 
+    script(src="../bundle.js") 
