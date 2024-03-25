@@ -1,0 +1,201 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title Homepage
+body 
+    include ./layout/sidebar.layout.pug
+    section#content
+        include ./layout/header.layout.pug
+        main#dashboard
+            ul.box-info
+                li.box-card
+                    .card
+                        i.bx.bx-palette
+                        span.text
+                            h3#artwork-count 1020
+                            p#artwork-text Artworks
+                li.box-card
+                    .card
+                        i.bx.bx-user
+                        span.text
+                            h3#artwork-count 1020
+                            p#user-text Users
+                li.box-card
+                    .card
+                        i.bx.bx-basket
+                        span.text
+                            h3#artwork-count 1020
+                            p#order-text Orders
+                li.box-card
+                    .card
+                        i.bx.bx-dollar
+                        span.text
+                            h3#artwork-count 1020
+                            p#profit-text Profit
+        main#dashboard-table-list
+            .table-holder
+                p.title Top 10 newest users
+                table.user-table-data 
+                    thead 
+                        tr 
+                            th User ID
+                            th Username
+                            th Email
+                            th Join Date 
+                    tbody.user-list
+                        each index in [1,2,3,4,5,6,7,8,9,10]
+                            tr
+                                td #{index}
+                                td hvannn
+                                td ngocngocthuc@gmail.com
+                                td 2021-09-09
+            .table-holder
+                p.title Top 10 newest order
+                table.order-table-data 
+                    thead 
+                        tr 
+                            th Order ID
+                            th Order Date
+                            th Total
+                            th Status 
+                    tbody.user-list
+                        each index in [1,2,3,4,5,6,7,8,9,10]
+                            tr
+                                td #{index}
+                                td 2021-09-09
+                                td 123
+                                td hjhj
+        main#artwork
+            .card-holder
+                .card
+                    a.product-block(href='/')
+                        .card-img.img
+                            img(src='../img/artwork-demo.jpg' alt='')
+                        .product-info
+                            .premium-tag
+                                img(src="../img/cta.png" alt="")
+                            button.favor-btn(data-id='${artwork.artworkId}')
+                                i.bx.bx-archive-in Favor
+                            p.product-bottom artwork
+                    .creator-block
+                        a.creator-link(href='#') hvannn
+                        .reaction
+                            i.bx.bxs-heart
+                            p.reaction-count 100
+                .card
+                    a.product-block(href='/')
+                        .card-img.img
+                            img(src='../img/artwork-demo.jpg' alt='')
+                        .product-info
+                            .premium-tag
+                                img(src="../img/cta.png" alt="")
+                            button.favor-btn(data-id='${artwork.artworkId}')
+                                i.bx.bx-archive-in Favor
+                            p.product-bottom artwork
+                    .creator-block
+                        a.creator-link(href='#') hvannn
+                        .reaction
+                            i.bx.bxs-heart
+                            p.reaction-count 100
+                .card
+                    a.product-block(href='/')
+                        .card-img.img
+                            img(src='../img/artwork-demo.jpg' alt='')
+                        .product-info
+                            .premium-tag
+                                img(src="../img/cta.png" alt="")
+                            button.favor-btn(data-id='${artwork.artworkId}')
+                                i.bx.bx-archive-in Favor
+                            p.product-bottom artwork
+                    .creator-block
+                        a.creator-link(href='#') hvannn
+                        .reaction
+                            i.bx.bxs-heart
+                            p.reaction-count 100
+                .card
+                    a.product-block(href='/')
+                        .card-img.img
+                            img(src='../img/artwork-demo.jpg' alt='')
+                        .product-info
+                            .premium-tag
+                                img(src="../img/cta.png" alt="")
+                            button.favor-btn(data-id='${artwork.artworkId}')
+                                i.bx.bx-archive-in Favor
+                            p.product-bottom artwork
+                    .creator-block
+                        a.creator-link(href='#') hvannn
+                        .reaction
+                            i.bx.bxs-heart
+                            p.reaction-count 100
+                .card
+                    a.product-block(href='/')
+                        .card-img.img
+                            img(src='../img/artwork-demo.jpg' alt='')
+                        .product-info
+                            .premium-tag
+                                img(src="../img/cta.png" alt="")
+                            button.favor-btn(data-id='${artwork.artworkId}')
+                                i.bx.bx-archive-in Favor
+                            p.product-bottom artwork
+                    .creator-block
+                        a.creator-link(href='#') hvannn
+                        .reaction
+                            i.bx.bxs-heart
+                            p.reaction-count 100
+                .card
+                    a.product-block(href='/')
+                        .card-img.img
+                            img(src='../img/artwork-demo.jpg' alt='')
+                        .product-info
+                            .premium-tag
+                                img(src="../img/cta.png" alt="")
+                            button.favor-btn(data-id='${artwork.artworkId}')
+                                i.bx.bx-archive-in Favor
+                            p.product-bottom artwork
+                    .creator-block
+                        a.creator-link(href='#') hvannn
+                        .reaction
+                            i.bx.bxs-heart
+                            p.reaction-count 100
+                .card
+                    a.product-block(href='/')
+                        .card-img.img
+                            img(src='../img/artwork-demo.jpg' alt='')
+                        .product-info
+                            .premium-tag
+                                img(src="../img/cta.png" alt="")
+                            button.favor-btn(data-id='${artwork.artworkId}')
+                                i.bx.bx-archive-in Favor
+                            p.product-bottom artwork
+                    .creator-block
+                        a.creator-link(href='#') hvannn
+                        .reaction
+                            i.bx.bxs-heart
+                            p.reaction-count 100
+                .card
+                    a.product-block(href='/')
+                        .card-img.img
+                            img(src='../img/artwork-demo.jpg' alt='')
+                        .product-info
+                            .premium-tag
+                                img(src="../img/cta.png" alt="")
+                            button.favor-btn(data-id='${artwork.artworkId}')
+                                i.bx.bx-archive-in Favor
+                            p.product-bottom artwork
+                    .creator-block
+                        a.creator-link(href='#') hvannn
+                        .reaction
+                            i.bx.bxs-heart
+                            p.reaction-count 100    
+        include ./layout/footer.layout.pug
+
+
+    script(src="../js/style-sidebar.js") 
+    script(src="../bundle.js") 

@@ -9,7 +9,7 @@ body {
         scrollbar-width: none;
         position: relative;
         z-index: 1;
-        transition: all 0.3s ease;
+        transition: 0.3s ease;
 
         &:-webkit-scrollbar {
             display: none;
@@ -18,9 +18,10 @@ body {
         .brand {
             display: block;
             width: 100%;
-            height: auto;
+            height: 7.5rem;
             padding: 1rem;
             margin-bottom: 3rem;
+            @include flex;
 
             img {
                 display: block;
