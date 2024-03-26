@@ -2,6 +2,14 @@ main#artwork {
     min-height: calc(100vh - 9.4rem);
     overflow: scroll;
 
+    .title {
+        padding: 2rem;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: $black;
+        text-align: center;
+    }
+
     .card-holder {
         width: 100%;
         padding: 2rem;

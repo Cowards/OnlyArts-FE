@@ -25,19 +25,19 @@ body
                     .card
                         i.bx.bx-user
                         span.text
-                            h3#artwork-count 1020
+                            h3#user-count 1020
                             p#user-text Users
                 li.box-card
                     .card
                         i.bx.bx-basket
                         span.text
-                            h3#artwork-count 1020
+                            h3#order-count 1020
                             p#order-text Orders
                 li.box-card
                     .card
                         i.bx.bx-dollar
                         span.text
-                            h3#artwork-count 1020
+                            h3#profit-count 1020
                             p#profit-text Profit
         main#dashboard-table-list
             .table-holder
@@ -50,12 +50,7 @@ body
                             th Email
                             th Join Date 
                     tbody.user-list
-                        each index in [1,2,3,4,5,6,7,8,9,10]
-                            tr
-                                td #{index}
-                                td hvannn
-                                td ngocngocthuc@gmail.com
-                                td 2021-09-09
+
             .table-holder
                 p.title Top 10 newest order
                 table.order-table-data 
@@ -66,136 +61,13 @@ body
                             th Total
                             th Status 
                     tbody.order-list
-                        each index in [1,2,3,4,5,6,7,8,9,10]
-                            tr
-                                td #{index}
-                                td 2021-09-09
-                                td 123
-                                td Complete
+
         main#artwork
+            p.title Top 8 newest artworks
             .card-holder
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100    
         include ./layout/footer.layout.pug
 
 
-    script(src="../js/style-sidebar.js") 
-    script(src="../bundle.js") 
+    script(src="/js/style-sidebar.js") 
+    script(src="/bundle.js") 
+    script(type="module" src="/js/dashboard.js") 
