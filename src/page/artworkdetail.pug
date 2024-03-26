@@ -1,0 +1,54 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title Homepage
+body 
+    include ./layout/sidebar.layout.pug
+    section#content
+        include ./layout/header.layout.pug
+        main#artworkdetail
+            .artwork-block
+                .artwork-left
+                    .artwork-img.img
+                        img#artwork-img(src='/img/artwork-demo.jpg' alt='')
+                .artwork-right
+                    .right-top
+                        .artwork-info
+                            a#author-link(href='#')
+                                .author-img.img
+                                    img(src='/img/user.png' alt='')
+                            p#description
+                                a.author-name(href='') hdiuu
+                                |                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                |                   Corporis facilis culpa nisi earum suscipit eligendi magnam
+                                |                   saepe vel quas totam, dolor, veritatis odio dicta commodi
+                                |                   aliquam! Repudiandae odio alias nemo?
+                            p.publishdate 21-11-2023
+                    .right-center
+                    .right-bottom
+                        .buttons-block
+                            button#react.artwork-btn.btn
+                                li.bx.bx-heart
+                            button#inreact.artwork-btn.btn
+                                i.bx.bxs-heart
+                            button#share.artwork-btn.btn(onclick='share()')
+                                i.bx.bx-share
+                            button#favor.artwork-btn.btn
+                                i.bx.bx-archive-in
+                            button#unfavor.artwork-btn.btn
+                                i.bx.bx-archive-out
+                        .comment-form-block
+                            form.comment-form
+                                textarea#comment(name='comment')
+                                input(type='submit' value='Send')
+        include ./layout/footer.layout.pug
+
+        script(src="/js/style-sidebar.js") 
+        script(src="/bundle.js") 

@@ -46,6 +46,9 @@ app.get("/signup", (req, res) => {
 app.get("/discover", (req, res) => {
   res.render("discover");
 });
+app.get("/discover/artwork/:id", (req, res) => {
+  res.render("artworkdetail");
+});
 app.get("/about", (req, res) => {
   res.render("about");
 });

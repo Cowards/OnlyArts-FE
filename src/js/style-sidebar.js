@@ -4,15 +4,16 @@ const sideBarImg = document.querySelector("#sidebar-img");
 
 menuBtn.addEventListener("click", () => {
   sideBarImg.src = sideBar.classList.toggle("show")
-    ? "../img/logo.png"
-    : "../img/logo-no-text.png";
+    ? "/img/logo.png"
+    : "/img/logo-no-text.png";
 });
 
-const navList = document.querySelectorAll("li");
+const navList = sideBar.querySelectorAll("li");
 navList.forEach((navItem) => {
   const currentPath = window.location.pathname;
+  console.log(currentPath);
   const navLink = navItem.querySelector("a");
-  if (navLink.href.includes(currentPath)) {
+  if (currentPath.includes(navLink.getAttribute("href"))) {
     navItem.classList.add("active");
   }
 });
