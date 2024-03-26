@@ -6,6 +6,9 @@ const loadUserData = async () => {
   const users = await http.send("GET", "/api/v3/users");
 
   users.forEach((user) => {
+    let status = user.online ? "Online" : "Offline";
+    status = user.removed ? "Removed" : status;
+    status = user.banned ? "Banned" : status;
     userTable.innerHTML += `
     <tr>
   
@@ -15,7 +18,7 @@ const loadUserData = async () => {
     <td>${user.phone}</td>
     <td>${user.address}</td>
     <td>${user.roleId}</td>
-    <td>${user.online ? "Online" : "Offline"}</td>
+    <td>${status}</td>
     <td>
     <form action="">
     <input type="text" name="id" value="${user.userId}" hidden="" />
@@ -39,10 +42,10 @@ userTable.addEventListener("click", async (e) => {
   const form = e.target.closest("form");
   const formData = new FormData(form);
   const userId = formData.get("id");
-  if (e.target.classList.contains("trash")) {
-    await http.send("DELETE", `/api/v3/user/${userId}`);
-  } else if (e.target.classList.contains("block")) {
-    await http.send("PUT", `/api/v3/user/${userId}`);
+  if (e.target.className.includes("trash")) {
+    await http.send("DELETE", `/api/v4/user/remove/${userId}`);
+  } else if (e.target.className.includes("block")) {
+    await http.send("PUT", `/api/v4/user/ban/${userId}`);
   }
   window.location.reload();
 });
