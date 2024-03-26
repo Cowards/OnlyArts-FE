@@ -58,3 +58,5 @@ gulp.task(
     gulp.watch(["src/**/*.js"], gulp.series("clean-video", "copyVideo"));
   })
 );
+
+gulp.task("build", gulp.series(["pug", "imageMin", "minifyjs", "copyVideo"]));

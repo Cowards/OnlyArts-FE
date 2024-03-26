@@ -58,6 +58,6 @@ export default (env, agrv) => {
       },
       port: 3000,
     },
-    watch: true,
+    watch: false,
   };
 };

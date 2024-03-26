@@ -7,10 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serverOn": "nodemon server.js",
+    "serverRun": "node server.js",
     "build": "webpack --mode production",
+    "watchbuild": "webpack --watch --mode development",
     "watch": "gulp watch",
     "minifyjs": "gulp minifyjs",
-    "webapp:dev": "concurrently 'npm:serverOn' 'npm:watch' 'npm:build' 'npm:minifyjs'"
+    "gulpbuild": "gulp build",
+    "webapp:dev": "concurrently 'npm:serverOn' 'npm:watch' 'npm:watchbuild' 'npm:minifyjs'"
   },
   "keywords": [],
   "author": "",

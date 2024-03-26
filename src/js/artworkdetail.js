@@ -5,6 +5,7 @@ const reactBtn = document.querySelector("#react");
 const inreactBtn = document.querySelector("#inreact");
 const favorBtn = document.querySelector("#favor");
 const unfavorBtn = document.querySelector("#unfavor");
+const shareBtn = document.querySelector("#share");
 const artworkId = window.location.pathname.split("/")[3];
 const loadArtworkDetail = async () => {
   const artwork = await http.send("GET", `/api/v2/artworks/${artworkId}`);
@@ -142,3 +143,30 @@ commentForm.addEventListener("submit", async (e) => {
 });
 
 loadArtworkDetail();
+
+const popupClose = document.querySelector(".popup-close");
+const popup = document.querySelector(".artwork-popup");
+const fbShareBtn = document.querySelector("#share-to-fb-btn");
+const twShareBtn = document.querySelector("#share-to-twitter-btn");
+const instagramShareBtn = document.querySelector("#share-to-instagram-btn");
+const pinterestShareBtn = document.querySelector("#share-to-pinterest-btn");
+const telegramShareBtn = document.querySelector("#share-to-telegram-btn");
+const thisUrl = window.location.href;
+const shareUrl = encodeURIComponent(thisUrl);
+fbShareBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+twShareBtn.href = `https://twitter.com/intent/tweet?url=${shareUrl}`;
+instagramShareBtn.href = `https://www.instagram.com/?url=${shareUrl}`;
+pinterestShareBtn.href = `https://pinterest.com/pin/create/button/?url=${shareUrl}`;
+telegramShareBtn.href = `https://t.me/share/url?url=${shareUrl}`;
+const linkCopyBtn = document.querySelector("#link-copy");
+const linkToArtwork = document.querySelector("#link-to-artwork");
+linkToArtwork.value = thisUrl;
+linkCopyBtn.addEventListener("click", async () => {
+  await navigator.clipboard.writeText(thisUrl);
+});
+shareBtn.addEventListener("click", () => {
+  popup.style.display = "block";
+});
+popupClose.addEventListener("click", () => {
+  popup.style.display = "none";
+});
