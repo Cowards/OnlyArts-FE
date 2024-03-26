@@ -40,6 +40,7 @@ const loadAccountInfo = async () => {
       }
     });
   } catch (err) {
+    localStorage.removeItem("authtoken");
     const sideBarMenu = document.querySelector(".side-menu");
     const menuItems = sideBarMenu.querySelectorAll("li");
     menuItems.forEach((item) => {

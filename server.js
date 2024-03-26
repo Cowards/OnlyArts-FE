@@ -64,6 +64,9 @@ app.get("/artworks", (req, res) => {
 app.get("/publish", (req, res) => {
   res.render("publish");
 });
+app.get("/logout", (req, res) => {
+  res.render("logout");
+});
 
 app.get("/geturl", (req, res) => {
   res.send({ url: process.env.API_URL });
