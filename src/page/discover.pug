@@ -20,131 +20,13 @@ body
                 .form-input-block
                     each val, index in ['All','AbstractStyle', 'Animation', 'Basic', 'Classic', 'Complex', 'Digital', 'DigitalTech', 'Expressionism', 'Fabric', 'FamousPortrait', 'Impressionism', 'Interior', 'Modern', 'Natural', 'Paper', 'Pastel', 'Realistic', 'Sketch', 'Traditional', 'Urban', 'Wall', 'Watercolor', 'Wood', 'Abstract', 'Acrylic', 'Charcoal', 'Comic', 'Landscape', 'Oil', 'Pencil', 'Portrait', 'StillLife', 'Fantasy']
                         .form-input
-                            input(type="checkbox" id=val name="category" value=val)
+                            input.cate-checkbox(type="checkbox" id=val name="category" value=val)
                             label(for=val) #{val}
         main#artwork
             .card-holder
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
-                .card
-                    a.product-block(href='/')
-                        .card-img.img
-                            img(src='../img/artwork-demo.jpg' alt='')
-                        .product-info
-                            .premium-tag
-                                img(src="../img/cta.png" alt="")
-                            button.favor-btn(data-id='${artwork.artworkId}')
-                                i.bx.bx-archive-in Favor
-                            p.product-bottom artwork
-                    .creator-block
-                        a.creator-link(href='#') hvannn
-                        .reaction
-                            i.bx.bxs-heart
-                            p.reaction-count 100
+                
         include ./layout/footer.layout.pug
-    script(src="../js/style-discover.js")
-    script(src="../js/style-sidebar.js") 
-    script(src="../bundle.js") 
+    script(src="/js/style-discover.js")
+    script(src="/js/style-sidebar.js") 
+    script(src="/bundle.js") 
+    script(type="module" src="/js/discover.js") 
