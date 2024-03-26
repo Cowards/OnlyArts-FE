@@ -11,6 +11,7 @@ const loadAccountInfo = async () => {
     "request",
     "notification",
   ];
+  const aacountLink = document.querySelector("#profile-link");
   try {
     const accountInfo = await http.send("GET", "/api/v4/user");
     const accountName = document.querySelector("#profile-name");
@@ -18,6 +19,7 @@ const loadAccountInfo = async () => {
       accountInfo.firstName + " " + accountInfo.lastName;
     const sideBarMenu = document.querySelector(".side-menu");
     const menuItems = sideBarMenu.querySelectorAll("li");
+    accountLink.href = `/profile/${accountInfo.userId}`;
     menuItems.forEach((item) => {
       if (accountInfo.roleId === "AD") {
         if (AD.includes(item.id)) {
@@ -43,6 +45,7 @@ const loadAccountInfo = async () => {
     localStorage.removeItem("authtoken");
     const sideBarMenu = document.querySelector(".side-menu");
     const menuItems = sideBarMenu.querySelectorAll("li");
+    aacountLink.href = "/login";
     menuItems.forEach((item) => {
       if (GS.includes(item.id)) {
         item.style.display = "none";
