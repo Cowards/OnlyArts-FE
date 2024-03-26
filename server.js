@@ -52,6 +52,9 @@ app.get("/discover/artwork/:id", (req, res) => {
 app.get("/discover/:category", (req, res) => {
   res.render("discover");
 });
+app.get("/profile/:uid", (req, res) => {
+  res.render("profile");
+});
 app.get("/about", (req, res) => {
   res.render("about");
 });

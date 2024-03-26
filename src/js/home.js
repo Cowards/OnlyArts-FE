@@ -48,6 +48,9 @@ const loadAccountInfo = async () => {
         }
       }
     });
+    if (accountInfo.roleId === "AD") {
+      document.querySelector("#main-search-form").style.display = "none";
+    }
   } catch (err) {
     localStorage.removeItem("authtoken");
     const sideBarMenu = document.querySelector(".side-menu");
@@ -62,7 +65,6 @@ const loadAccountInfo = async () => {
     });
   }
 };
-loadAccountInfo();
 const artworkCardHoler = document.querySelector(".card-holder");
 const loadArtworks = async () => {
   const currentPage = window.location.pathname.split("/")[2];
@@ -135,6 +137,8 @@ const loadArtworks = async () => {
     window.location.href = `/home/${parseInt(currentPage) + 1}`;
   });
 };
-loadArtworks();
 
 export { loadAccountInfo, loadArtworks };
+
+loadAccountInfo();
+loadArtworks();
