@@ -67,6 +67,9 @@ const loadArtworks = async () => {
     `/api/v2/artworks/offset/${currentPage}`
   );
   artworks.forEach(async (artwork) => {
+    if (artwork.banned || artwork.removed) {
+      return;
+    }
     const artworkImg = await http.send(
       "GET",
       `/api/v1/image/${artwork.artworkImage}`

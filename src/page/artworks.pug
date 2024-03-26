@@ -22,28 +22,20 @@ body
                                 th Image
                                 th Name
                                 th Description
-                                th Price
+                                th Premium 
                                 th Status
                                 th Action
-                        tbody
-                            each val in [1,2,3,4,5,6,7,8,9,10]
-                                tr 
-                                    td.img
-                                        img(src="../img/artwork-demo.jpg" alt="artwork")
-                                    td 
-                                        p Artwork 1
-                                    td.description 
-                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                    td 
-                                        p $100
-                                    td 
-                                        p Free
-                                    td 
-                                        form(action="") 
-                                            input(type="text" name="id" value = "1", hidden)
-                                            button(type="submit") 
-                                                i.bx.bx-trash
+                        tbody.artworks-data
+
+            #artwork-manage-paging
+                button#prev-manage.btn-prev
+                    i(class='bx bx-chevron-left')
+                    | Previous Page
+                button#next-manage.btn-next
+                    | Next Page
+                    i(class='bx bx-chevron-right')
         include ./layout/footer.layout.pug
 
     script(src="../js/style-sidebar.js") 
     script(src="../bundle.js") 
+    script(type="module" src="../js/artworks.js") 

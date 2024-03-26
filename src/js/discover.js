@@ -23,6 +23,9 @@ checkBoxs.forEach((checkbox) => {
 const loadArtworks = async () => {
   const artworks = await http.send("GET", `/api/v2/artworks/type/${category}`);
   artworks.forEach(async (artwork) => {
+    if (artwork.banned || artwork.removed) {
+      return;
+    }
     const artworkImg = await http.send(
       "GET",
       `/api/v1/image/${artwork.artworkImage}`

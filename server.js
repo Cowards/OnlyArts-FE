@@ -64,7 +64,7 @@ app.get("/dashboard", (req, res) => {
 app.get("/account", (req, res) => {
   res.render("account");
 });
-app.get("/artworks", (req, res) => {
+app.get("/artworks/:page", (req, res) => {
   res.render("artworks");
 });
 app.get("/publish", (req, res) => {
