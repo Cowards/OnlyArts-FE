@@ -124,4 +124,4 @@ const loadArtworks = async () => {
 };
 loadArtworks();
 
-export default loadAccountInfo;
+export { loadAccountInfo, loadArtworks };

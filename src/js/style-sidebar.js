@@ -11,7 +11,6 @@ menuBtn.addEventListener("click", () => {
 const navList = sideBar.querySelectorAll("li");
 navList.forEach((navItem) => {
   const currentPath = window.location.pathname;
-  console.log(currentPath);
   const navLink = navItem.querySelector("a");
   if (currentPath.includes(navLink.getAttribute("href"))) {
     navItem.classList.add("active");
