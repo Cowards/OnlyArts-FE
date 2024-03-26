@@ -1,6 +1,13 @@
 import http from "./http.js";
 const loadAccountInfo = async () => {
-  const AD = ["about", "contact", "login", "request"];
+  const AD = [
+    "discover",
+    "index",
+    "contact",
+    "login",
+    "request",
+    "notification",
+  ];
   const CR = ["dashboard", "account", "artwork", "login"];
   const CT = ["dashboard", "account", "artwork", "login"];
   const GS = [

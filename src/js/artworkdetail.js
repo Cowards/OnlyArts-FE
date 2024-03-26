@@ -74,12 +74,28 @@ const loadArtworkDetail = async () => {
     `;
   });
 };
+const loadButtons = async () => {
+  const checkReact = (await http.send("PUT", `/api/v2/reactions/${artworkId}`))
+    .react;
+  if (checkReact) {
+    reactBtn.style.display = "none";
+  } else {
+    inreactBtn.style.display = "none";
+  }
+  const checkFavor = (await http.send("PUT", `/api/v2/favorite/${artworkId}`))
+    .react;
+  if (checkFavor) {
+    favorBtn.style.display = "none";
+  } else {
+    unfavorBtn.style.display = "none";
+  }
+};
+loadButtons();
 
 reactBtn.addEventListener("click", async () => {
   try {
-    await http.send("POST", `/api/v2/reactions/${artworkId}`);
-    reactBtn.style.display = "none";
-    inreactBtn.style.display = "block";
+    await http.send("POST", `/api/v2/reactions`, { artworkId: artworkId });
+    window.location.reload();
   } catch {
     window.location.href = "/login";
   }
@@ -87,17 +103,15 @@ reactBtn.addEventListener("click", async () => {
 inreactBtn.addEventListener("click", async () => {
   try {
     await http.send("DELETE", `/api/v2/reactions/${artworkId}`);
-    inreactBtn.style.display = "none";
-    reactBtn.style.display = "block";
+    window.location.reload();
   } catch {
     window.location.href = "/login";
   }
 });
 favorBtn.addEventListener("click", async () => {
   try {
-    await http.send("POST", `/api/v2/favorite/${artworkId}`);
-    favorBtn.style.display = "none";
-    unfavorBtn.style.display = "block";
+    await http.send("POST", `/api/v2/favorite/`, { artworkId: artworkId });
+    window.location.reload();
   } catch {
     window.location.href = "/login";
   }
@@ -105,8 +119,7 @@ favorBtn.addEventListener("click", async () => {
 unfavorBtn.addEventListener("click", async () => {
   try {
     await http.send("DELETE", `/api/v2/favorite/${artworkId}`);
-    unfavorBtn.style.display = "none";
-    favorBtn.style.display = "block";
+    window.location.reload();
   } catch {
     window.location.href = "/login";
   }
@@ -116,9 +129,9 @@ commentForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const comment = document.querySelector("#comment").value;
   try {
-    await http.send("POST", `/api/v2/comments/${artworkId}`, {
-      artworkId,
-      comment,
+    await http.send("POST", `/api/v2/comments`, {
+      artworkId: artworkId,
+      description: comment,
     });
     window.location.reload();
   } catch {
