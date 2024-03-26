@@ -36,8 +36,6 @@ const loadArtworkDetail = async () => {
   try {
     const checkReact = await http.send("PUT", `/api/v2/reactions/${artworkId}`);
     const checkFavor = await http.send("PUT", `/api/v2/favorite/${artworkId}`);
-    console.log(reactBtn);
-    console.log(inreactBtn);
     if (checkReact.react) {
       reactBtn.style.display = "none";
     } else {
@@ -54,6 +52,27 @@ const loadArtworkDetail = async () => {
   }
 
   const comments = await http.send("GET", `/api/v2/comments/${artworkId}`);
+  const commentContainer = document.querySelector(".right-center");
+  comments.forEach(async (comment) => {
+    const commenter = await http.send(
+      "GET",
+      `/api/v4/user/${comment.commenterId}`
+    );
+    const commentDate = new Date(comment.comment_time);
+    commentContainer.innerHTML += `
+    <div class="comment-block">
+      <p id="description">
+      <a class="commenter-name" href="">${commenter.firstName} ${
+      commenter.lastName
+    }</a>
+      ${comment.description}
+      </p>
+      <p class="comment-time">${commentDate.getDate()}-${
+      commentDate.getMonth() + 1
+    }-${commentDate.getFullYear()}</p>
+    </div>
+    `;
+  });
 };
 
 reactBtn.addEventListener("click", async () => {

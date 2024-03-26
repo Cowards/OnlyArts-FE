@@ -136,7 +136,7 @@
 
                     #description {
                         display: block;
-                        width: calc(100% - 4rem);
+                        width: calc(100%);
                         text-align: justify;
                         font-size: 1.4rem;
                         padding-right: 2rem;
@@ -144,13 +144,15 @@
                         .commenter-name {
                             color: $black;
                             font-weight: 500;
+                            padding-right: 1rem;
                         }
                     }
 
                     .comment-time {
                         display: block;
                         width: 100%;
-                        padding-left: 4rem;
+                        padding-top: 1rem;
+                        padding-left: 1rem;
                         font-size: 1.2rem;
                         font-weight: 300;
                     }
