@@ -1,11 +1,10 @@
 import API_URL from "./config.js";
 class Http {
   constructor() {
-    API_URL.then((res) => {
-      this.api = res.url;
-    });
+    this.api = API_URL;
     this.headers = {
       "Content-Type": "application/json",
+      authtoken: localStorage.getItem("authtoken") || undefined,
     };
   }
 

@@ -1,11 +1,12 @@
 main#artwork {
+    min-height: calc(100vh - 9.4rem);
+    overflow: scroll;
 
     .card-holder {
         width: 100%;
         padding: 2rem;
         font-family: $poppins;
         max-height: calc(100vh - 56px);
-        overflow-y: auto;
         display: flex;
         flex-wrap: wrap;
         background-color: $white;
@@ -116,6 +117,7 @@ main#artwork {
                     i {
                         height: 1.8rem;
                         margin-right: 0.5rem;
+                        color: $red;
                     }
                 }
             }
@@ -131,4 +133,37 @@ main#artwork {
         }
     }
 
+
+}
+
+#artwork-paging {
+    @include flex(space-between, center, row);
+    padding: 2rem;
+
+    button {
+        display: block;
+        padding: 0.5rem .5rem;
+        @include flex;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 1rem;
+        background-color: $grey;
+
+        &:hover {
+            background-color: $dark-grey;
+        }
+
+        &:nth-child(1) {
+            padding-right: 1rem;
+        }
+
+        &:nth-child(2) {
+            padding-left: 1rem;
+        }
+
+        .bx {
+            font-size: 2.5rem;
+        }
+    }
 }

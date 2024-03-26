@@ -8,5 +8,5 @@ const send = async (method, url) => {
   );
   return data;
 };
-const URL_API = send("GET", "/geturl");
+const URL_API = "http://localhost:8080/OnlyArts";
 export default URL_API;

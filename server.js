@@ -29,9 +29,12 @@ app.set("view engine", "pug");
 // nav trên pug nên trỏ đến mấy cái router này thì sẽ dùng SSR
 
 app.get("/", (req, res) => {
-  res.redirect("/home");
+  res.redirect("/home/1");
 });
 app.get("/home", (req, res) => {
+  res.redirect("/home/1");
+});
+app.get("/home/:page", (req, res) => {
   res.render("home");
 });
 app.get("/login", (req, res) => {
