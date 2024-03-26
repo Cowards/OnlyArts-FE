@@ -32,31 +32,10 @@ body
                                 th Status
                                 th Action
                         tbody.users-data
-                            each val in [1,2,3,4,5,6,7,8,9,10]
-                                tr
-                                    form(action="") 
-                                        td 
-                                            input(type="text" name="id" value="${val}" readonly)
-                                        td 
-                                            input(type="text" name="name" value="hvann")
-                                        td 
-                                            input(type="text" name="email" value="mail@example.com" readonly)
-                                        td 
-                                            input(type="text" name="phone" value="0123456789")
-                                        td 
-                                            input(type="text" name="address" value="Phnom Penh")
-                                        td 
-                                            input(type="text" name="role" value="Admin" readonly)
-                                        td Active
-                                        td 
-                                            button(name="action" value="edit").edit
-                                                i.bx.bx-edit
-                                            button(name="action" value="remove").delete
-                                                i.bx.bx-trash
-                                            button(name="action" value="block").ban 
-                                                i.bx.bx-block
+
 
         include ./layout/footer.layout.pug
 
     script(src="../js/style-sidebar.js") 
     script(src="../bundle.js") 
+    script(type="module" src="../js/account.js") 
