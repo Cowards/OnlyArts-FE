@@ -96,7 +96,7 @@ const loadArtworks = async () => {
         </div>
         <div class="product-info">
         ${
-          artwork.premium
+          artwork.price > 0
             ? `<div class="premium-tag">
             <img src="../img/cta.png" alt="" />
             </div>`

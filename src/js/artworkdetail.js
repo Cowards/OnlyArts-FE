@@ -12,6 +12,8 @@ const loadArtworkDetail = async () => {
     "GET",
     `/api/v1/image/${artwork.artworkImage}`
   );
+  const title = document.querySelector("title");
+  title.innerHTML = `${artwork.name} - OnlyArts`;
   const owner = await http.send("GET", `/api/v4/user/${artwork.ownerId}`);
 
   const img = document.querySelector("#artwork-img");

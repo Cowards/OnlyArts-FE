@@ -6,7 +6,7 @@ head
     meta(content='Page description' name='description')
     meta(name='google' content='notranslate')
     meta(name='msapplication-tap-highlight' content='no')
-    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(rel="icon" type="image/x-icon" href="/img/logo-no-text.png")
     link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
     title Homepage
 body 
@@ -15,6 +15,26 @@ body
         include ./layout/header.layout.pug
         main#artworkdetail
             .artwork-block
+                .artwork-popup
+                    .popup-block
+                        button.popup-close
+                            i.bx.bx-x
+                        .artwork-popup-top 
+                            input#link-to-artwork(type='text' value='http://localhost:3000/artwork/1' readonly)
+                            button#link-copy
+                                i.bx.bx-copy
+                        .artwork-popup-bottom
+                            a.popup-share-btn#share-to-fb-btn(href='' target='_blank')
+                                i.bx.bxl-facebook
+                            a.popup-share-btn#share-to-twitter-btn(href='' target='_blank')
+                                i.bx.bxl-twitter
+                            a.popup-share-btn#share-to-instagram-btn(href='' target='_blank')
+                                i.bx.bxl-instagram
+                            a.popup-share-btn#share-to-pinterest-btn(href='' target='_blank')
+                                i.bx.bxl-pinterest
+                            a.popup-share-btn#share-to-telegram-btn(href='' target='_blank')
+                                i.bx.bxl-telegram
+
                 .artwork-left
                     .artwork-img.img
                         img#artwork-img(src='/img/artwork-demo.jpg' alt='')

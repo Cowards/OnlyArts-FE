@@ -3,6 +3,8 @@
     height: calc(100vh - 56px);
     padding: 2rem;
 
+
+
     .artwork-block {
         border-radius: 2rem;
         overflow: hidden;
@@ -13,6 +15,117 @@
         align-items: center;
         height: 100%;
         @include darkshadow(0.1);
+        position: relative;
+
+        .artwork-popup {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            backdrop-filter: blur(3px);
+
+            .popup-block {
+                width: 40rem;
+                height: fit-content;
+                background-color: $white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 4rem;
+                border-radius: 1rem;
+                @include darkshadow(0.1);
+
+                .popup-close {
+                    display: block;
+                    font-size: 4rem;
+                    padding: 0;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background-color: transparent;
+                    color: $dark-grey;
+                    border: none;
+                    cursor: pointer;
+                    outline: none;
+                }
+
+                .artwork-popup-top {
+                    @include flex;
+                    border: 1px solid $black;
+                    border-radius: .5rem;
+                    overflow: hidden;
+                    ;
+
+                    #link-to-artwork {
+                        display: block;
+                        width: 100%;
+                        font-size: 2rem;
+                        border: none;
+                        background-color: $white;
+                        padding: 1rem;
+                        padding: .5rem;
+                        color: $dark-grey;
+                        outline: none;
+                    }
+
+                    #link-copy {
+                        display: block;
+                        font-size: 2.5rem;
+                        padding: .5rem;
+                        color: $dark-grey;
+                        background-color: $grey;
+                        outline: none;
+                        border: none;
+                        border-left: 1px solid $black;
+                        cursor: pointer;
+                    }
+                }
+
+                .artwork-popup-bottom {
+                    @include flex(space-around, center, row);
+                    width: 100%;
+                    padding: 1.5rem 1rem;
+                    padding-bottom: 0;
+
+                    .popup-share-btn {
+                        display: block;
+                        width: 4rem;
+                        height: 4rem;
+                        font-size: 3rem;
+                        border-radius: 50%;
+                        text-align: center;
+                    }
+
+                    #share-to-fb-btn {
+                        color: $white;
+                        background-color: $facebook;
+                    }
+
+                    #share-to-twitter-btn {
+                        color: $white;
+                        background-color: $twitter;
+                    }
+
+                    #share-to-pinterest-btn {
+                        color: $white;
+                        background-color: $pinterest;
+                    }
+
+                    #share-to-instagram-btn {
+                        color: $white;
+                        background: $instagram;
+                    }
+
+                    #share-to-telegram-btn {
+                        color: $white;
+                        background-color: $telegram;
+                    }
+                }
+            }
+        }
 
         .artwork-left {
             height: 100%;
