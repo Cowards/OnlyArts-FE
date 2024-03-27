@@ -1,14 +1,18 @@
-import API_URL from "./config.js";
+import { getUrl } from "./config.js";
 class Http {
   constructor() {
-    this.api = API_URL;
     this.headers = {
       "Content-Type": "application/json",
       authtoken: localStorage.getItem("authtoken") || undefined,
     };
   }
 
+  async setAPI() {
+    this.api = await getUrl();
+  }
+
   async send(method, url, body) {
+    await this.setAPI();
     const data = await fetch(`${this.api}${url}`, {
       method: method,
       headers: this.headers,

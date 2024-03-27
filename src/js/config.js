@@ -12,7 +12,13 @@ const send = async (method, url) => {
   return data;
 };
 
-const URL_API = send("GET", urlGetAPI).then((data) => {
-  return data.url;
-});
-export default URL_API;
+export const getUrl = async function () {
+  return send("GET", urlGetAPI).then((data) => {
+    return data.url;
+  });
+};
+
+// => async () =>
+//   await send("GET", urlGetAPI).then((data) => {
+//     return data.url;
+//   });
