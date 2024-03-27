@@ -20,98 +20,39 @@ body
                 .account-name Jolie
                 .account-bio vous &ecirc;tes ma famille
                 .account-follow
-                    #account--follower.follow-text
-                        a.follow-text(href='#') 100 followers
+                    #account--follower
+                        p.follow-text.followers 100 followers
                     #account-followings
-                        a.follow-text(href='#') 100 followings
+                        p.follow-text.followings 100 followings
                 ul.account-btn-list
                     li.account-list-item
                         button#btn-follow.account-btn.btn Follow
                     li.account-list-item
-                        button#btn-infollow.account-btn.btn Unfollow
+                        button#btn-unfollow.account-btn.btn Unfollow
                     li.account-list-item
                         button#btn-request.account-btn.btn Send Request
                     li.account-list-item
                         button#btn-publish.account-btn.btn Publish Artwork
                     li.account-list-item
-                        button#btn-change-pw.account-btn.btn Change Password
+                        button#btn-update.account-btn.btn Update Information
                 h3 About Information
                     .about-block
                         .info-block
                             h3 Role
-                            p Creator
+                            p.role Creator
                         .info-block
                             h3 Phone
-                            p 0123456789
+                            p.phone 0123456789
                         .info-block
                             h3 Email
-                            p ngocngocthuc@gmail.com
+                            p.email ngocngocthuc@gmail.com
                         .info-block
                             h3 Address
-                            p Long Thanh My, Thuc Duc, TP.HCM
+                            p.address Long Thanh My, Thuc Duc, TP.HCM
         main#artwork 
-            p.artwork-title Your Artworks
+            p.title Your Artworks
                 .card-holder
-                    .card
-                        a.product-block(href='/')
-                            .card-img.img
-                                img(src='../img/artwork-demo.jpg' alt='')
-                            .product-info
-                                .premium-tag
-                                    img(src="../img/cta.png" alt="")
-                                button.favor-btn(data-id='${artwork.artworkId}')
-                                    i.bx.bx-archive-in Favor
-                                p.product-bottom artwork
-                        .creator-block
-                            a.creator-link(href='#') hvannn
-                            .reaction
-                                i.bx.bxs-heart
-                                p.reaction-count 100
-                    .card
-                        a.product-block(href='/')
-                            .card-img.img
-                                img(src='../img/artwork-demo.jpg' alt='')
-                            .product-info
-                                .premium-tag
-                                    img(src="../img/cta.png" alt="")
-                                button.favor-btn(data-id='${artwork.artworkId}')
-                                    i.bx.bx-archive-in Favor
-                                p.product-bottom artwork
-                        .creator-block
-                            a.creator-link(href='#') hvannn
-                            .reaction
-                                i.bx.bxs-heart
-                                p.reaction-count 100
-                    .card
-                        a.product-block(href='/')
-                            .card-img.img
-                                img(src='../img/artwork-demo.jpg' alt='')
-                            .product-info
-                                .premium-tag
-                                    img(src="../img/cta.png" alt="")
-                                button.favor-btn(data-id='${artwork.artworkId}')
-                                    i.bx.bx-archive-in Favor
-                                p.product-bottom artwork
-                        .creator-block
-                            a.creator-link(href='#') hvannn
-                            .reaction
-                                i.bx.bxs-heart
-                                p.reaction-count 100
-                    .card
-                        a.product-block(href='/')
-                            .card-img.img
-                                img(src='../img/artwork-demo.jpg' alt='')
-                            .product-info
-                                .premium-tag
-                                    img(src="../img/cta.png" alt="")
-                                button.favor-btn(data-id='${artwork.artworkId}')
-                                    i.bx.bx-archive-in Favor
-                                p.product-bottom artwork
-                        .creator-block
-                            a.creator-link(href='#') hvannn
-                            .reaction
-                                i.bx.bxs-heart
-                                p.reaction-count 100
-            include ./layout/footer.layout.pug
-    script(src="../js/style-sidebar.js") 
-    script(src="../bundle.js") 
+        include ./layout/footer.layout.pug
+    script(src="/js/style-sidebar.js") 
+    script(src="/bundle.js") 
+    script(type="module" src="/js/profile.js") 

@@ -29,6 +29,9 @@ const loadArtworkDetail = async () => {
       : (await http.send("GET", `/api/v1/image/${owner.avatar}`)).imageData;
   const ownerImgElement = document.querySelector(".author-img>img");
   ownerImgElement.src = ownerImg;
+  if (artwork.price > 0) {
+    shareBtn.style.display = "none";
+  }
   const publishDate = document.querySelector(".publishdate");
   const releasedDate = new Date(artwork.releasedDate);
   const formattedDate = `${releasedDate.getDate()}-${

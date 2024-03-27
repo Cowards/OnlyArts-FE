@@ -12,6 +12,7 @@ loginForm.addEventListener("submit", async (e) => {
     });
     const authToken = res.tokenString;
     localStorage.setItem("authtoken", authToken);
+    localStorage.setItem("userId", res.userId);
     window.location.href = "/";
   } catch (err) {
     const error = document.querySelector("#login-error-message");
