@@ -168,3 +168,6 @@ unfollowBtn.addEventListener("click", async () => {
 publishBtn.addEventListener("click", () => {
   window.location.href = "/publish";
 });
+requestBtn.addEventListener("click", () => {
+  window.location.href = "/contact";
+});

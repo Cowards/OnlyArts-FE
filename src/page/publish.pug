@@ -28,10 +28,10 @@ body
                             each val, index in ['AbstractStyle', 'Animation', 'Basic', 'Classic', 'Complex', 'Digital', 'DigitalTech', 'Expressionism', 'Fabric', 'FamousPortrait', 'Impressionism', 'Interior', 'Modern', 'Natural', 'Paper', 'Pastel', 'Realistic', 'Sketch', 'Traditional', 'Urban', 'Wall', 'Watercolor', 'Wood', 'Abstract', 'Acrylic', 'Charcoal', 'Comic', 'Landscape', 'Oil', 'Pencil', 'Portrait', 'StillLife', 'Fantasy']
                                 option(value=val) #{val}
                     .input-block
-                        label.form-label(for='category') Premium
-                        select#category.form-select(name='premium')
-                            option(value='Free') Free
-                            option(value='Premium') Premium
+                        label.form-label(for='category') Status
+                        select#status.form-select(name='status')
+                            option(value='private') Private
+                            option(value='public') Public
                     .input-block
                         label.form-label(for='description') Description
                         textarea#description.form-textarea(name='description' required='')
@@ -46,3 +46,4 @@ body
 
         script(src="../js/style-sidebar.js") 
         script(src="../bundle.js") 
+        script(type="module" src="/js/publish.js") 
