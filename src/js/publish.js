@@ -20,11 +20,16 @@ document
     const image = formData.get("image");
     const name = formData.get("name");
     const description = formData.get("description");
-    const cateId = formData.get("category");
+    const cateId = (
+      await http.send(
+        "GET",
+        `/api/v3/categories/name/${formData.get("category")}`
+      )
+    ).cateId;
     const price = formData.get("price");
     const status = formData.get("status") === "private" ? 4 : 0;
     // console.log(image, name, description, cateId, price, status);
-    uploadImage(image).then((imageId) => {
+    uploadImage(image).then(async (imageId) => {
       console.log(imageId);
       const artwork = {
         artworkImage: imageId,
@@ -35,7 +40,8 @@ document
         status: status,
       };
       try {
-        http.send("POST", "/api/v2/artworks", artwork);
+        const _artwork = await http.send("POST", "/api/v2/artworks", artwork);
+        window.location.href = `/discover/artwork/${_artwork.artworkId}`;
       } catch (error) {
         console.log(error);
       }
