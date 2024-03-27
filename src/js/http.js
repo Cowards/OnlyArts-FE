@@ -13,6 +13,9 @@ class Http {
 
   async send(method, url, body) {
     await this.setAPI();
+    console.log(this.api);
+    console.log(url);
+    console.log(body);
     const data = await fetch(`${this.api}${url}`, {
       method: method,
       headers: this.headers,
