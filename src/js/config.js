@@ -1,5 +1,4 @@
 const urlGetAPI = window.location.origin + "/geturl";
-console.log(urlGetAPI);
 
 const send = async (method, url) => {
   const data = await fetch(url, {
