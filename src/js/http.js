@@ -9,6 +9,7 @@ class Http {
 
   async setAPI() {
     this.api = await getUrl();
+    this.api = this.api.concat("/OnlyArts");
   }
 
   async send(method, url, body) {
