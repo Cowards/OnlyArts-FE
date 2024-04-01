@@ -12,8 +12,6 @@ categoryForm.addEventListener("click", async (e) => {
 });
 const category = window.location.pathname.split("/")[2];
 const checkBoxs = document.querySelectorAll(".cate-checkbox");
-console.log(checkBoxs);
-console.log(category);
 checkBoxs.forEach((checkbox) => {
   if (checkbox.id === category) {
     checkbox.checked = true;
@@ -34,6 +32,7 @@ const loadArtworks = async () => {
       "GET",
       `/api/v2/reactions/${artwork.artworkId}`
     );
+
     artworkCardHolder.innerHTML += `
       <div class="card">
       <a class="product-block" href="/discover/artwork/${artwork.artworkId}">
@@ -42,16 +41,21 @@ const loadArtworks = async () => {
         </div>
         <div class="product-info">
         ${
-          artwork.premium
+          artwork.price
             ? `<div class="premium-tag">
             <img src="../img/cta.png" alt="" />
             </div>`
             : ""
         }
-        <button class="favor-btn" data-id="${artwork.artworkId}">
-          <i class="bx bx-archive-in">Favor</i>
-        </button>
-        <p class="product-bottom">${artwork.name}</p>
+        <div class="favor-btn">${category}</div>
+        <div class="product-bottom">
+          <p class="product-name">${artwork.name}</p>
+          ${
+            artwork.price
+              ? `<p class="product-price">$ ${artwork.price}</p>`
+              : ""
+          }
+        </div>
         </div>
       </a>
       <div class="creator-block">
