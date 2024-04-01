@@ -1,6 +1,6 @@
 import http from "./http.js";
 const logout = async () => {
-  await http.send("DELETE", "/api/v1/authentication/logout").then((res) => {
+  await http.send("DELETE", "/api/v1/authen/logout").then((res) => {
     console.log(res);
     localStorage.removeItem("authtoken");
     window.location.href = "/login";

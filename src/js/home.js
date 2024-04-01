@@ -1,21 +1,14 @@
 import http from "./http.js";
 const loadAccountInfo = async () => {
-  const AD = [
-    "discover",
-    "index",
-    "contact",
-    "login",
-    "request",
-    "notification",
-  ];
-  const CR = ["dashboard", "account", "artwork", "login"];
+  const AD = ["discover", "index", "contact", "login", "cart", "notification"];
+  const CR = ["dashboard", "account", "artwork", "cart", "purchased", "login"];
   const CT = ["dashboard", "account", "artwork", "login"];
   const GS = [
     "dashboard",
     "account",
     "artwork",
     "logout",
-    "request",
+    "cart",
     "notification",
   ];
   const accountLink = document.querySelector("#profile-link");

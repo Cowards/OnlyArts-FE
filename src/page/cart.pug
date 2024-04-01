@@ -1,0 +1,29 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title Homepage
+body 
+    include ./layout/sidebar.layout.pug
+    section#content
+        include ./layout/header.layout.pug
+        main#artwork
+            .card-holder 
+        #artwork-paging
+            button#prev.btn-prev
+                i(class='bx bx-chevron-left')
+                | Previous Page
+            button#next.btn-next
+                | Next Page
+                i(class='bx bx-chevron-right')
+        include ./layout/footer.layout.pug
+
+    script(src="../js/style-sidebar.js") 
+    script(src="../bundle.js") 
+    script(type="module" src="/js/cart.js") 

@@ -76,6 +76,9 @@ app.get("/publish", (req, res) => {
 app.get("/logout", (req, res) => {
   res.render("logout");
 });
+app.get("/cart", (req, res) => {
+  res.render("cart");
+});
 
 app.get("/geturl", (req, res) => {
   res.send({ url: process.env.API_URL });

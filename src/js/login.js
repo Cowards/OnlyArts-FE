@@ -6,7 +6,7 @@ loginForm.addEventListener("submit", async (e) => {
   const email = formData.get("email");
   const password = formData.get("password");
   try {
-    const res = await http.send("POST", "/api/v1/authentication/login", {
+    const res = await http.send("POST", "/api/v1/authen/login", {
       email,
       password,
     });
