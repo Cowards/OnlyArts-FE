@@ -154,6 +154,37 @@
             .right-top {
                 width: 100%;
 
+                .artwork-tag {
+                    @include flex(flex-start, center, row);
+                    color: $white;
+                    font-size: 1.3rem;
+                    font-weight: 300;
+
+                    .category-tag {
+                        display: block;
+                        padding: 0.5rem 1rem;
+                        background-color: $light-green;
+                        border-radius: 0.5rem;
+                        margin-right: 1rem;
+                    }
+
+                    .premium-tag {
+                        display: block;
+                        padding: 0.5rem 1rem;
+                        background-color: $yellow;
+                        border-radius: 0.5rem;
+                        margin-right: 1rem;
+                    }
+
+                    .price-tag {
+                        display: block;
+                        padding: 0.5rem 1rem;
+                        background-color: $red;
+                        border-radius: 0.5rem;
+                        margin-right: 1rem;
+                    }
+                }
+
                 .artwork-info {
                     padding-top: 1rem;
                     display: flex;
