@@ -1,0 +1,90 @@
+main#checkout {
+    padding: 2rem;
+    min-height: calc(100vh - 9.4rem);
+
+    .container {
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 1rem;
+        padding: 2rem;
+        @include darkshadow(.1);
+
+        .billing-info {
+            margin-bottom: 3rem;
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            .billing-details {
+
+                .billing-item {
+                    width: 100%;
+                    @include flex(space-between, center, row);
+                    padding: .5rem;
+
+                    .artwork-name {
+                        width: 80%;
+                        font-size: 1.8rem;
+                        font-weight: 500;
+                    }
+
+                    .artwork-price {
+                        width: 15%;
+                        font-size: 1.8rem;
+                        font-weight: 500;
+                        color: $green;
+                        text-align: left;
+                    }
+                }
+
+            }
+        }
+
+        #createOrder {
+            @include flex(space-between, center, row);
+
+            .form-group {
+                width: 48%;
+                @include flex;
+
+                label {
+                    font-size: 2.4rem;
+                    font-weight: 500;
+                    width: 30%;
+                }
+
+                input {
+                    width: 70%;
+                    padding: 1rem;
+                    font-size: 1.8rem;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    font-family: $poppins;
+                    color: $green;
+                }
+            }
+
+            button {
+                padding: 1rem 2rem;
+                font-size: 1.8rem;
+                font-weight: 500;
+                background-color: $green;
+                color: white;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                border-radius: .5rem;
+                transition: all .3s;
+
+                &:hover {
+                    background-color: darken($green, 10%);
+                }
+            }
+        }
+    }
+}
