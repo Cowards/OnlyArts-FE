@@ -7,7 +7,8 @@ main#cart {
         width: 90%;
         border-radius: 2rem;
         overflow: hidden;
-        @include darkshadow(.3);
+        @include darkshadow(.1);
+        min-height: calc(100vh - 9.4rem);
 
         .cart-item-header {
             width: 100%;
