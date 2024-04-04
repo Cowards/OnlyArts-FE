@@ -46,3 +46,14 @@ document
       location.reload();
     }
   });
+
+const checkoutBtn = document.querySelector(".checkout-btn");
+checkoutBtn.addEventListener("click", () => {
+  const totalCart = document.querySelector(".cart-total-info>.price");
+  const total = totalCart.innerHTML.split(" ")[1];
+  if (total === "0") {
+    alert("Your cart is empty");
+  } else {
+    window.location.href = "/checkout";
+  }
+});

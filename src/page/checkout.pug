@@ -13,20 +13,14 @@ body
     include ./layout/sidebar.layout.pug
     section#content
         include ./layout/header.layout.pug
-        main#cart 
-            .container
-                .cart-item-header
-                    h1 Your Cart
-                .cart-item-list
-
-                .cart-total
-                    .cart-total-info
-                        p.text Total: 
-                        p.price $60
-                    .cart-total-checkout
-                        button.checkout-btn Checkout
+        main#checkout 
+            div.table-responsive
+                form#createOrder
+                    label Số tiền
+                    input.form-control#amount(name='amount' placeholder='Số tiền', value)
+                    button.btn.btn-default#btnPopup(type='submit') Thanh toán
         include ./layout/footer.layout.pug
 
     script(src="../js/style-sidebar.js") 
     script(src="../bundle.js") 
-    script(type="module" src="/js/cart.js") 
+    script(type="module" src="/js/checkout.js") 

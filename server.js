@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
+import payment from "./routes/payment.js";
 
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -79,7 +80,7 @@ app.get("/logout", (req, res) => {
 app.get("/cart", (req, res) => {
   res.render("cart");
 });
-
+app.use("/checkout", payment);
 app.get("/geturl", (req, res) => {
   res.send({ url: process.env.API_URL });
 });
