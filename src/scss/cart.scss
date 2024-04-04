@@ -1,0 +1,113 @@
+main#cart {
+    padding: 2rem;
+
+    .container {
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        border-radius: 2rem;
+        overflow: hidden;
+        @include darkshadow(.3);
+
+        .cart-item-header {
+            width: 100%;
+            display: block;
+            background-color: $light-blue;
+            text-align: center;
+            padding: .5rem;
+            font-size: 2rem;
+        }
+
+        .cart-item-list {
+            padding: 1rem;
+            @include flex(flex-start, center, row);
+            flex-wrap: wrap;
+
+            .cart-item-block {
+                width: 50%;
+                padding: 1rem;
+
+                .cart-item-img {
+                    display: block;
+                    width: 100%;
+                    height: 40rem;
+
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .cart-item-info {
+                    @include flex(space-between, center, row);
+                    padding: 1rem;
+                    width: 100%;
+                    font-size: 1.8rem;
+                    font-weight: 300;
+
+                    .cart-item-title {
+                        font-weight: 500;
+                        font-size: 1.8rem;
+                    }
+
+                    .cart-item-price {
+                        font-weight: 500;
+                        font-size: 1.8rem;
+                        color: $light-green;
+                    }
+
+                    .cart-item-remove {
+                        button {
+                            display: block;
+                            padding: .5rem;
+                            font-size: 1.8rem;
+                            color: $red;
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        .cart-total {
+            @include flex(space-between, center, row);
+            padding: 2rem;
+
+            .cart-total-info {
+                @include flex;
+
+                .text {
+                    padding: .5rem;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                }
+
+                .price {
+                    padding: .5rem;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    color: $green;
+                }
+            }
+
+            .cart-total-checkout {
+                button {
+                    padding: 1rem 2rem;
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    color: $white;
+                    background-color: $green;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    border-radius: 1rem;
+                }
+            }
+        }
+    }
+}
