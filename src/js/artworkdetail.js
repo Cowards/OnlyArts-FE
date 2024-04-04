@@ -43,7 +43,7 @@ const loadArtworkDetail = async () => {
     downloadBtn.addEventListener("click", async () => {
       try {
         const checkBuy = (
-          await http.send("GET", `/api/v3/artworks/isbuy`, {
+          await http.send("PUT", `/api/v3/artworks/isbuy`, {
             artworkId: artworkId,
           })
         ).react;
@@ -56,7 +56,8 @@ const loadArtworkDetail = async () => {
         } else {
           alert("You have to buy this artwork to download it");
         }
-      } catch {
+      } catch (err) {
+        console.log(err);
         window.location.href = "/login";
       }
     });
@@ -171,6 +172,11 @@ const loadArtworkDetail = async () => {
   title.innerHTML = `${artwork.name} - ${
     owner.firstName + " " + owner.lastName
   }`;
+  const reactions = await http.send(
+    "GET",
+    `/api/v2/reactions/${artwork.artworkId}`
+  );
+  document.querySelector("#reactions").innerHTML = reactions.length;
   description.innerHTML = `<a class="author-name" href="/profile/${
     owner.userId
   }">${owner.firstName + " " + owner.lastName + " "}</a>${artwork.description}`;
@@ -225,9 +231,8 @@ const loadArtworkDetail = async () => {
     commentContainer.innerHTML += `
     <div class="comment-block">
       <p id="description">
-      <a class="commenter-name" href="">${commenter.firstName} ${
-      commenter.lastName
-    }</a>
+      <a class="commenter-name" href="/profile/${commenter.userId}">
+      ${commenter.firstName} ${commenter.lastName}</a>
       ${comment.description}
       </p>
       <p class="comment-time">${commentDate.getDate()}-${
@@ -306,8 +311,12 @@ addCartBtn.addEventListener("click", async () => {
       artworkId: artworkId,
     });
     window.location.reload();
-  } catch {
-    window.location.href = "/login";
+  } catch (err) {
+    if (err === "You have already added this artwork to your cart") {
+      alert(err);
+    } else {
+      window.location.href = "/login";
+    }
   }
 });
 
