@@ -34,7 +34,7 @@ const form = document.querySelector("#createOrder");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = new FormData(form);
-  const amount = data.get("amount");
+  const amount = data.get("amount") * 23000;
   const url = await send("POST", `/checkout/create_payment_url/${amount}`);
   console.log(url);
   window.location.href = url.vnpUrl;

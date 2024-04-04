@@ -1,0 +1,47 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(content='IE=edge' http-equiv='X-UA-Compatible')
+    meta(content='width=device-width,initial-scale=1' name='viewport')
+    meta(content='Page description' name='description')
+    meta(name='google' content='notranslate')
+    meta(name='msapplication-tap-highlight' content='no')
+    link(rel="icon" type="image/x-icon" href="../img/logo-no-text.png")
+    link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+    title Homepage
+body 
+    include ./layout/sidebar.layout.pug
+    section#content
+        include ./layout/header.layout.pug
+        main#paymentsuccess 
+            .container
+                p.title Payment complete
+                .payment-content 
+                    p.title Order ID
+                    p.detail#orderid #{vnp_TxnRef}
+                .payment-content 
+                    p.title Amount
+                    p.detail#amount $ #{vnp_Amount}
+                .payment-content 
+                    p.title Pay Date
+                    p.detail#paydate #{vnp_PayDate}
+                .payment-content
+                    p.title Bank Code
+                    p.detail#bankcode #{vnp_BankCode}
+                .payment-content
+                    p.title Payment Status
+                    p.detail#status #{vnp_ResponseCode}
+                .payment-content 
+                    p.title Transaction ID
+                    p.detail#transactionid #{vnp_TransactionNo}
+                .payment-content 
+                    p.title Card Type
+                    p.detail#cardtype #{vnp_CardType}
+                #backToHome 
+                    a(href='/') Back to Home
+
+        include ./layout/footer.layout.pug
+
+    script(src="../js/style-sidebar.js") 
+    script(src="../bundle.js") 
+    script(type="module" src="/js/paymentsuccess.js") 

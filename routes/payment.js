@@ -57,20 +57,11 @@ router.post("/create_payment_url/:amount", function (req, res) {
 
 router.get("/vnpay_return", function (req, res, next) {
   let vnp_Params = req.query;
-  let secureHash = vnp_Params["vnp_SecureHash"];
   delete vnp_Params["vnp_SecureHash"];
   delete vnp_Params["vnp_SecureHashType"];
-  vnp_Params = sortObject(vnp_Params);
-  let tmnCode = process.env.VNP_TMNCODE;
-  let secretKey = process.env.VNP_HASHSECRET;
-  let signData = querystring.stringify(vnp_Params, { encode: false });
-  let hmac = crypto.createHmac("sha512", secretKey);
-  let signed = hmac.update(new Buffer(signData, "utf-8")).digest("hex");
-  if (secureHash === signed) {
-    res.render("success", { code: vnp_Params["vnp_ResponseCode"] });
-  } else {
-    res.render("success", { code: "97" });
-  }
+  delete vnp_Params["vnp_TmnCode"];
+  const data = vnp_Params;
+  res.render("paymentsuccess", data);
 });
 
 function sortObject(obj) {

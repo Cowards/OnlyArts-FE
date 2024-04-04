@@ -1,0 +1,57 @@
+main#paymentsuccess {
+    padding: 2rem;
+    min-height: calc(100vh - 9.4rem);
+
+    .container {
+        padding: 2rem;
+        width: 60%;
+        margin: 0 auto;
+        @include darkshadow(.1);
+        border-radius: 1rem;
+        overflow: hidden;
+
+        .title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .payment-content {
+            @include flex(space-between, center, row);
+            padding: .5rem 3rem;
+
+            .title {
+                font-size: 2rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+                width: 60%;
+                text-align: left;
+            }
+
+            .detail {
+                font-size: 1.6rem;
+                font-weight: 400;
+                width: 40%;
+                text-align: right;
+            }
+        }
+
+        #backToHome {
+            margin-top: 2rem;
+            @include flex(center, center, row);
+            padding: 1rem 2rem;
+            background-color: $blue;
+            color: $white;
+            border-radius: 5px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                background-color: $light-blue;
+            }
+        }
+    }
+}
