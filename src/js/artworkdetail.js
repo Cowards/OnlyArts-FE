@@ -42,11 +42,10 @@ const loadArtworkDetail = async () => {
 
     downloadBtn.addEventListener("click", async () => {
       try {
-        const checkBuy = (
-          await http.send("PUT", `/api/v3/artworks/isbuy`, {
-            artworkId: artworkId,
-          })
-        ).react;
+        const checkBuy = await http.send("PUT", `/api/v3/artworks/isbuy`, {
+          artworkId: artworkId,
+        });
+        console.log(checkBuy);
         if (checkBuy) {
           const img = document.querySelector("#artwork-img");
           const downloadLink = document.createElement("a");

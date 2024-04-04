@@ -17,5 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
   console.log(data);
   await http.send("POST", "/api/v3/orders", data);
+  await http.send("POST", `/api/v3/orderdetails/${orderId}`);
   await http.send("DELETE", "/api/v3/cart");
 });

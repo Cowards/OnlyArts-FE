@@ -5,12 +5,12 @@ loadAccountInfo();
 const loadDashboard = async () => {
   const artworks = await http.send("GET", "/api/v2/artworks");
   const users = await http.send("GET", "/api/v3/users");
-  const orders = (await http.send("GET", "/api/v3/orders")).orders;
+  const orders = await http.send("GET", "/api/v3/orders");
   artworks.sort((a, b) => {
     return a.releaseDate - b.releaseDate;
   });
   users.sort((a, b) => {
-    return a.joinDate - b.joinDate;
+    return b.joinDate - a.joinDate;
   });
   const artworkCount = document.querySelector("#artwork-count");
   artworkCount.textContent = artworks.length;
@@ -20,7 +20,7 @@ const loadDashboard = async () => {
   orderCount.textContent = orders.length;
   let totalProfit = 0;
   orders.forEach((order) => {
-    totalProfit += order.totalPrice * 0.05;
+    totalProfit += Math.round(order.totalPrice * 0.05 * 100) / 100;
   });
   const profit = document.querySelector("#profit-count");
   profit.textContent = totalProfit;
@@ -71,7 +71,7 @@ const loadDashboard = async () => {
     `;
   });
   const userCardHolder = document.querySelector(".user-list");
-  const orderCardHolder = document.querySelector(".user-list");
+  const orderCardHolder = document.querySelector(".order-list");
   firstUsers.forEach((user) => {
     const joinDate = new Date(user.joinDate);
     userCardHolder.innerHTML += `
@@ -85,18 +85,19 @@ const loadDashboard = async () => {
         </tr>
     `;
   });
-  firstOrders.forEach((user) => {
-    const joinDate = new Date(user.joinDate);
+  firstOrders.forEach((order) => {
+    console.log(order);
+    const orderDate = new Date(order.orderTime);
     orderCardHolder.innerHTML += `
-        <tr>
-          <td>${user.roleId}</td>
-          <td>${user.firstName + " " + user.lastName}</td>
-          <td>${user.email}</td>
-          <td>${joinDate.getDate()}-${
-      joinDate.getMonth() + 1
-    }-${joinDate.getFullYear()}</td>
-        </tr>
-    `;
+      <tr>
+        <td>${order.orderId}</td>
+        <td>${orderDate.getDate()}-${
+      orderDate.getMonth() + 1
+    }-${orderDate.getFullYear()}</td>
+        <td>${order.totalPrice}</td>
+        <td>${order.paymentMethod}</td>
+      </tr>
+        `;
   });
 };
 
