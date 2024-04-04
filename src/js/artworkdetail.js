@@ -44,7 +44,7 @@ const loadArtworkDetail = async () => {
       try {
         const checkBuy = await http.send("PUT", `/api/v3/artworks/isbuy`, {
           artworkId: artworkId,
-        });
+        }).react;
         console.log(checkBuy);
         if (checkBuy) {
           const img = document.querySelector("#artwork-img");
