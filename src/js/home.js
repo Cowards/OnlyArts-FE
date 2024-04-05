@@ -45,11 +45,12 @@ const loadAccountInfo = async () => {
       document.querySelector("li#dashboard>a").href = "/dashboard/admin";
     }
     if (accountInfo.roleId === "CR") {
-      document.querySelector("#main-search-form").style.display = "none";
       document.querySelector("li#dashboard>a").href = "/dashboard/creator";
     }
   } catch (err) {
+    console.log(err);
     localStorage.removeItem("authtoken");
+    localStorage.removeItem("userId");
     const sideBarMenu = document.querySelector(".side-menu");
     const menuItems = sideBarMenu.querySelectorAll("li");
     accountLink.href = "/login";
