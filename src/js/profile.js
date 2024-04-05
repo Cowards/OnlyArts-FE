@@ -71,10 +71,7 @@ const loadProfile = async () => {
     }
     const artworks =
       profile.roleId === "CR"
-        ? await http.send(
-            "GET",
-            `/api/v2/artworks/creator/${profile.firstName} ${profile.lastName}`
-          )
+        ? await http.send("GET", `/api/v3/artworks/${profile.userId}`)
         : await http.send("GET", `/api/v4/favor/${currentProfile}`);
     document.querySelector("main#artwork > .title").innerHTML = `${
       profile.roleId === "CR" ? " Published Artworks" : "Favorite Artworks"
@@ -95,6 +92,7 @@ const loadProfile = async () => {
           "GET",
           `/api/v2/reactions/${artwork.artworkId}`
         );
+        const owner = await http.send("GET", `/api/v4/user/${artwork.ownerId}`);
         artworkContainer.innerHTML += `
           <div class="card">
           <a class="product-block" href="/discover/artwork/${
@@ -123,7 +121,71 @@ const loadProfile = async () => {
             </div>
           </a>
           <div class="creator-block">
-            <a class="creator-link" href="#">${artwork.ownerId}</a>
+            <a class="creator-link" href="${artwork.ownerId}">${
+          owner.firstName
+        } ${owner.lastName}</a>
+            <div class="reaction">
+            <i class="bx bxs-heart"></i>
+            <p class="reaction-count">${reaction.length}</p>
+            </div>
+          </div>
+          </div>
+        `;
+      });
+    }
+
+    const buyedArtworks =
+      profile.roleId === "CT" && loginUser === currentProfile
+        ? await http.send("GET", `/api/v3/artworks/isbuy`)
+        : [];
+    const buyedArtowrkContainer = document.querySelector(".buyed-card-holder");
+    if (buyedArtworks.length === 0) {
+      document.querySelector(".buyed-title").style.display = "none";
+    } else {
+      buyedArtworks.forEach(async (artwork) => {
+        if (artwork.banned || artwork.removed || artwork.artworkId == null) {
+          return;
+        }
+        const artworkImg = await http.send(
+          "GET",
+          `/api/v1/image/${artwork.artworkImage}`
+        );
+        const owner = await http.send("GET", `/api/v4/user/${artwork.ownerId}`);
+        const reaction = await http.send(
+          "GET",
+          `/api/v2/reactions/${artwork.artworkId}`
+        );
+        buyedArtowrkContainer.innerHTML += `
+          <div class="card">
+          <a class="product-block" href="/discover/artwork/${
+            artwork.artworkId
+          }">
+            <div class="card-img img">
+            <img src="${artworkImg.imageData}" alt="" />
+            </div>
+            <div class="product-info">
+            ${
+              artwork.price
+                ? `<div class="premium-tag">
+                <img src="../img/cta.png" alt="" />
+                </div>`
+                : ""
+            }
+            <div class="favor-btn">${artwork.cateId}</div>
+            <div class="product-bottom">
+              <p class="product-name">${artwork.name}</p>
+              ${
+                artwork.price
+                  ? `<p class="product-price">$ ${artwork.price}</p>`
+                  : ""
+              }
+            </div>
+            </div>
+          </a>
+          <div class="creator-block">
+            <a class="creator-link" href="${artwork.ownerId}">${
+          owner.firstName
+        } ${owner.lastName}</a>
             <div class="reaction">
             <i class="bx bxs-heart"></i>
             <p class="reaction-count">${reaction.length}</p>
