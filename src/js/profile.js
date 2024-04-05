@@ -61,14 +61,14 @@ const loadProfile = async () => {
       if (profile.roleId !== "CR") {
         publishBtn.style.display = "none";
       }
-    } //else {
-    //   if (profile.roleId !== "CR") {
-    //     requestBtn.style.display = "none";
-    //   }
-    //   updateBtn.style.display = "none";
-    //   changePwBtn.style.display = "none";
-    //   publishBtn.style.display = "none";
-    // }
+    } else {
+      //   if (profile.roleId !== "CR") {
+      //     requestBtn.style.display = "none";
+      //   }
+      //   updateBtn.style.display = "none";
+      //   changePwBtn.style.display = "none";
+      publishBtn.style.display = "none";
+    }
 
     console.log(profile);
     const artworks =
@@ -78,7 +78,6 @@ const loadProfile = async () => {
             `/api/v2/artworks/creator/${profile.firstName} ${profile.lastName}`
           )
         : await http.send("GET", `/api/v4/favor/${currentProfile}`);
-    console.log(artworks);
     document.querySelector("main#artwork > .title").innerHTML = `${
       profile.roleId === "CR" ? " Published Artworks" : "Favorite Artworks"
     }`;
@@ -94,41 +93,53 @@ const loadProfile = async () => {
           "GET",
           `/api/v1/image/${artwork.artworkImage}`
         );
+        const owner = await http.send("GET", `/api/v4/user/${artwork.ownerId}`);
         const reaction = await http.send(
           "GET",
           `/api/v2/reactions/${artwork.artworkId}`
         );
+        const category = await http.send(
+          "GET",
+          `/api/v3/categories/${artwork.cateId}`
+        );
         artworkContainer.innerHTML += `
-              <div class="card">
-              <a class="product-block" href="/discover/artwork/${
-                artwork.artworkId
-              }">
-                <div class="card-img img">
-                <img src="${artworkImg.imageData}" alt="" />
-                </div>
-                <div class="product-info">
-                ${
-                  artwork.price > 0
-                    ? `<div class="premium-tag">
-                    <img src="../img/cta.png" alt="" />
-                    </div>`
-                    : ""
-                }
-                <button class="favor-btn" data-id="${artwork.artworkId}">
-                  <i class="bx bx-archive-in">Favor</i>
-                </button>
-                <p class="product-bottom">${artwork.name}</p>
-                </div>
-              </a>
-              <div class="creator-block">
-                <a class="creator-link" href="#">${artwork.ownerId}</a>
-                <div class="reaction">
-                <i class="bx bxs-heart"></i>
-                <p class="reaction-count">${reaction.length}</p>
-                </div>
-              </div>
-              </div>
-            `;
+          <div class="card">
+          <a class="product-block" href="/discover/artwork/${
+            artwork.artworkId
+          }">
+            <div class="card-img img">
+            <img src="${artworkImg.imageData}" alt="" />
+            </div>
+            <div class="product-info">
+            ${
+              artwork.price
+                ? `<div class="premium-tag">
+                <img src="../img/cta.png" alt="" />
+                </div>`
+                : ""
+            }
+            <div class="favor-btn">${category.cateName}</div>
+            <div class="product-bottom">
+              <p class="product-name">${artwork.name}</p>
+              ${
+                artwork.price
+                  ? `<p class="product-price">$ ${artwork.price}</p>`
+                  : ""
+              }
+            </div>
+            </div>
+          </a>
+          <div class="creator-block">
+            <a class="creator-link" href="#">${
+              owner.firstName + " " + owner.lastName
+            }</a>
+            <div class="reaction">
+            <i class="bx bxs-heart"></i>
+            <p class="reaction-count">${reaction.length}</p>
+            </div>
+          </div>
+          </div>
+        `;
       });
     }
   } catch {}
