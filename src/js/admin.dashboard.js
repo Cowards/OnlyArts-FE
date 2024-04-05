@@ -7,7 +7,7 @@ const loadDashboard = async () => {
   const users = await http.send("GET", "/api/v3/users");
   const orders = await http.send("GET", "/api/v3/orders");
   artworks.sort((a, b) => {
-    return a.releaseDate - b.releaseDate;
+    return b.releaseDate - a.releaseDate;
   });
   users.sort((a, b) => {
     return b.joinDate - a.joinDate;
@@ -86,7 +86,6 @@ const loadDashboard = async () => {
     `;
   });
   firstOrders.forEach((order) => {
-    console.log(order);
     const orderDate = new Date(order.orderTime);
     orderCardHolder.innerHTML += `
       <tr>

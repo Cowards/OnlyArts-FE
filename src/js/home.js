@@ -43,6 +43,7 @@ const loadAccountInfo = async () => {
     });
     if (accountInfo.roleId === "AD") {
       document.querySelector("#main-search-form").style.display = "none";
+      document.querySelector("li#dashboard>a").href = "/dashboard/admin";
     }
   } catch (err) {
     localStorage.removeItem("authtoken");

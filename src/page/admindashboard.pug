@@ -13,31 +13,31 @@ body
     include ./layout/sidebar.layout.pug
     section#content
         include ./layout/header.layout.pug
-        main#dashboard
+        main#admindashboard
             ul.box-info
                 li.box-card
                     .card
                         i.bx.bx-palette
                         span.text
-                            h3#artwork-count 1020
+                            h3#artwork-count
                             p#artwork-text Artworks
                 li.box-card
                     .card
                         i.bx.bx-user
                         span.text
-                            h3#user-count 1020
+                            h3#user-count
                             p#user-text Users
                 li.box-card
                     .card
                         i.bx.bx-basket
                         span.text
-                            h3#order-count 1020
+                            h3#order-count
                             p#order-text Orders
                 li.box-card
                     .card
                         i.bx.bx-dollar
                         span.text
-                            h3#profit-count 1020
+                            h3#profit-count 
                             p#profit-text Profit
         main#dashboard-table-list
             .table-holder
@@ -61,7 +61,6 @@ body
                             th Total
                             th Bank Code 
                     tbody.order-list
-
         main#artwork
             p.title Top 8 newest artworks
             .card-holder
@@ -70,4 +69,4 @@ body
 
     script(src="/js/style-sidebar.js") 
     script(src="/bundle.js") 
-    script(type="module" src="/js/dashboard.js") 
+    script(type="module" src="/js/admin.dashboard.js") s

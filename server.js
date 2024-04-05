@@ -62,8 +62,8 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
-app.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+app.get("/dashboard/admin", (req, res) => {
+  res.render(`admindashboard`);
 });
 app.get("/account", (req, res) => {
   res.render("account");
