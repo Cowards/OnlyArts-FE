@@ -10,13 +10,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   const orderId = document.querySelector("#orderid").innerHTML;
   const bankCode = document.querySelector("#bankcode").innerHTML;
   const status = document.querySelector("#status");
+  const _status = status.innerHTML;
   status.innerHTML = status.innerHTML === "00" ? "Success" : "Failed";
   const data = {
     orderId: orderId,
     paymentMethod: bankCode,
   };
   console.log(data);
-  await http.send("POST", "/api/v3/orders", data);
-  await http.send("POST", `/api/v3/orderdetails/${orderId}`);
-  await http.send("DELETE", "/api/v3/cart");
+  if (_status === "00") {
+    await http.send("POST", "/api/v3/orders", data);
+    await http.send("POST", `/api/v3/orderdetails/${orderId}`);
+    await http.send("DELETE", "/api/v3/cart");
+  }
 });

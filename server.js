@@ -65,6 +65,9 @@ app.get("/contact", (req, res) => {
 app.get("/dashboard/admin", (req, res) => {
   res.render(`admindashboard`);
 });
+app.get("/dashboard/creator", (req, res) => {
+  res.render(`creatordashboard`);
+});
 app.get("/account", (req, res) => {
   res.render("account");
 });
