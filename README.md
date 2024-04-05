@@ -65,3 +65,8 @@ This is a school project in SWP391 subject. In this project we built a web appli
 To run this project, you will need to add the following environment variables to your .env file <br>
 `API_URL`
 `PORT`
+`VNP_TMNCODE`
+`VNP_HASHSECRET`
+`VNP_URL`
+`VNP_API_URL`
+`VNP_RETURN_URL`
