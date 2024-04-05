@@ -23,12 +23,15 @@ const loadDashboard = async () => {
     totalProfit += Math.round(order.totalPrice * 0.05 * 100) / 100;
   });
   const profit = document.querySelector("#profit-count");
-  profit.textContent = totalProfit;
+  profit.textContent = parseFloat(totalProfit).toFixed(2);
   const firstArtworks = artworks.slice(0, 8);
   const firstUsers = users.slice(0, 10);
   const firstOrders = orders.slice(0, 10);
   const artworkCardHoler = document.querySelector(".card-holder");
   firstArtworks.forEach(async (artwork) => {
+    if (artwork.banned || artwork.removed) {
+      return;
+    }
     const artworkImg = await http.send(
       "GET",
       `/api/v1/image/${artwork.artworkImage}`
@@ -38,6 +41,10 @@ const loadDashboard = async () => {
       "GET",
       `/api/v2/reactions/${artwork.artworkId}`
     );
+    const category = await http.send(
+      "GET",
+      `/api/v3/categories/${artwork.cateId}`
+    );
     artworkCardHoler.innerHTML += `
       <div class="card">
       <a class="product-block" href="/discover/artwork/${artwork.artworkId}">
@@ -46,16 +53,21 @@ const loadDashboard = async () => {
         </div>
         <div class="product-info">
         ${
-          artwork.premium
+          artwork.price
             ? `<div class="premium-tag">
             <img src="../img/cta.png" alt="" />
             </div>`
             : ""
         }
-        <button class="favor-btn" data-id="${artwork.artworkId}">
-          <i class="bx bx-archive-in">Favor</i>
-        </button>
-        <p class="product-bottom">${artwork.name}</p>
+        <div class="favor-btn">${category.cateName}</div>
+        <div class="product-bottom">
+          <p class="product-name">${artwork.name}</p>
+          ${
+            artwork.price
+              ? `<p class="product-price">$ ${artwork.price}</p>`
+              : ""
+          }
+        </div>
         </div>
       </a>
       <div class="creator-block">
