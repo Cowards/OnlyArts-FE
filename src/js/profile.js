@@ -69,8 +69,6 @@ const loadProfile = async () => {
       //   changePwBtn.style.display = "none";
       publishBtn.style.display = "none";
     }
-
-    console.log(profile);
     const artworks =
       profile.roleId === "CR"
         ? await http.send(
@@ -97,10 +95,6 @@ const loadProfile = async () => {
           "GET",
           `/api/v2/reactions/${artwork.artworkId}`
         );
-        const category = await http.send(
-          "GET",
-          `/api/v3/categories/${artwork.cateId}`
-        );
         artworkContainer.innerHTML += `
           <div class="card">
           <a class="product-block" href="/discover/artwork/${
@@ -117,7 +111,7 @@ const loadProfile = async () => {
                 </div>`
                 : ""
             }
-            <div class="favor-btn">${category.cateName}</div>
+            <div class="favor-btn">${artwork.cateId}</div>
             <div class="product-bottom">
               <p class="product-name">${artwork.name}</p>
               ${
