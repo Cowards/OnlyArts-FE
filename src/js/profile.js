@@ -25,50 +25,6 @@ const loadProfile = async () => {
     profileName.innerHTML = `${profile.firstName} ${profile.lastName}`;
     const profileBio = document.querySelector(".account-bio");
     profileBio.innerHTML = profile.bio;
-    const followings = await http.send(
-      "GET",
-      `/api/v4/follow/following/${currentProfile}`
-    );
-    const followers = await http.send(
-      "GET",
-      `/api/v4/follow/follower/${currentProfile}`
-    );
-    const profileFollowers = document.querySelector(".followers");
-    profileFollowers.innerHTML = `${followers.length} Followers`;
-    const profileFollowing = document.querySelector(".followings");
-    profileFollowing.innerHTML = `${followings.length} Followings`;
-
-    const loginUser = localStorage.getItem("userId");
-    console.log(loginUser);
-    if (loginUser === currentProfile) {
-      followBtn.style.display = "none";
-      unfollowBtn.style.display = "none";
-      requestBtn.style.display = "none";
-      if (profile.roleId !== "CR") {
-        publishBtn.style.display = "none";
-      }
-    } else {
-      if (profile.roleId !== "CR") {
-        requestBtn.style.display = "none";
-      }
-      updateBtn.style.display = "none";
-      changePwBtn.style.display = "none";
-      publishBtn.style.display = "none";
-      try {
-        const follow = await http.send(
-          "GET",
-          `/api/v4/follow/${currentProfile}`
-        );
-        if (follow.follow) {
-          followBtn.style.display = "none";
-        } else {
-          unfollowBtn.style.display = "none";
-        }
-      } catch {
-        unfollowBtn.style.display = "none";
-      }
-    }
-
     const roleInfo = document.querySelector(".info-block>.role");
     const phoneInfo = document.querySelector(".info-block>.phone");
     const emailInfo = document.querySelector(".info-block>.email");
@@ -83,7 +39,38 @@ const loadProfile = async () => {
     phoneInfo.innerHTML = `${profile.phone}`;
     emailInfo.innerHTML = `${profile.email}`;
     addressInfo.innerHTML = `${profile.address}`;
+    // const followings = await http.send(
+    //   "GET",
+    //   `/api/v4/follow/following/${currentProfile}`
+    // );
+    // const followers = await http.send(
+    //   "GET",
+    //   `/api/v4/follow/follower/${currentProfile}`
+    // );
+    // const profileFollowers = document.querySelector(".followers");
+    // profileFollowers.innerHTML = `${followers.length} Followers`;
+    // const profileFollowing = document.querySelector(".followings");
+    // profileFollowing.innerHTML = `${followings.length} Followings`;
 
+    const loginUser = localStorage.getItem("userId");
+    // console.log(loginUser);
+    if (loginUser === currentProfile) {
+      //   followBtn.style.display = "none";
+      //   unfollowBtn.style.display = "none";
+      //   requestBtn.style.display = "none";
+      if (profile.roleId !== "CR") {
+        publishBtn.style.display = "none";
+      }
+    } //else {
+    //   if (profile.roleId !== "CR") {
+    //     requestBtn.style.display = "none";
+    //   }
+    //   updateBtn.style.display = "none";
+    //   changePwBtn.style.display = "none";
+    //   publishBtn.style.display = "none";
+    // }
+
+    console.log(profile);
     const artworks =
       profile.roleId === "CR"
         ? await http.send(
@@ -92,7 +79,7 @@ const loadProfile = async () => {
           )
         : await http.send("GET", `/api/v4/favor/${currentProfile}`);
     console.log(artworks);
-    document.querySelector("#artwork>.title").innerHTML = `${
+    document.querySelector("main#artwork > .title").innerHTML = `${
       profile.roleId === "CR" ? " Published Artworks" : "Favorite Artworks"
     }`;
     const artworkContainer = document.querySelector(".card-holder");
@@ -149,25 +136,25 @@ const loadProfile = async () => {
 };
 loadProfile(); // Call the loadProfile function
 
-followBtn.addEventListener("click", async () => {
-  try {
-    await http.send("POST", `/api/v4/follow/${currentProfile}`);
-    window.location.reload();
-  } catch {
-    window.location.href = "/login";
-  }
-});
-unfollowBtn.addEventListener("click", async () => {
-  try {
-    await http.send("DELETE", `/api/v4/follow/${currentProfile}`);
-    window.location.reload();
-  } catch {
-    window.location.href = "/login";
-  }
-});
+// followBtn.addEventListener("click", async () => {
+//   try {
+//     await http.send("POST", `/api/v4/follow/${currentProfile}`);
+//     window.location.reload();
+//   } catch {
+//     window.location.href = "/login";
+//   }
+// });
+// unfollowBtn.addEventListener("click", async () => {
+//   try {
+//     await http.send("DELETE", `/api/v4/follow/${currentProfile}`);
+//     window.location.reload();
+//   } catch {
+//     window.location.href = "/login";
+//   }
+// });
 publishBtn.addEventListener("click", () => {
   window.location.href = "/publish";
 });
-requestBtn.addEventListener("click", () => {
-  window.location.href = "/contact";
-});
+// requestBtn.addEventListener("click", () => {
+//   window.location.href = "/contact";
+// });
