@@ -112,9 +112,9 @@ const loadArtworks = async () => {
         </div>
       </a>
       <div class="creator-block">
-        <a class="creator-link" href="#">${
-          owner.firstName + " " + owner.lastName
-        }</a>
+        <a class="creator-link" href="/profile/${artwork.ownerId}">${
+      owner.firstName + " " + owner.lastName
+    }</a>
         <div class="reaction">
         <i class="bx bxs-heart"></i>
         <p class="reaction-count">${reaction.length}</p>

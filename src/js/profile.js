@@ -93,7 +93,6 @@ const loadProfile = async () => {
           "GET",
           `/api/v1/image/${artwork.artworkImage}`
         );
-        const owner = await http.send("GET", `/api/v4/user/${artwork.ownerId}`);
         const reaction = await http.send(
           "GET",
           `/api/v2/reactions/${artwork.artworkId}`
@@ -130,9 +129,7 @@ const loadProfile = async () => {
             </div>
           </a>
           <div class="creator-block">
-            <a class="creator-link" href="#">${
-              owner.firstName + " " + owner.lastName
-            }</a>
+            <a class="creator-link" href="#">${artwork.ownerId}</a>
             <div class="reaction">
             <i class="bx bxs-heart"></i>
             <p class="reaction-count">${reaction.length}</p>
